@@ -1,0 +1,15 @@
+# {'data': [{
+#     'c': Tradeconditions,
+#     'p':Price,
+#     't': Timestamp,
+#     'v': Volume,
+#     's': Symbol
+# }, 
+# {   'c': Tradeconditions,
+#     'p':Price,
+#     't': Timestamp,
+#     'v': Volume,
+#     's': Symbol
+# }],
+# 'type':'trade'
+# }
