@@ -26,3 +26,30 @@ services:
         PLAINTEXT_HOST:PLAINTEXT 
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+  db:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'FINANCE_DATABASE'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'kafka_consumer'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
