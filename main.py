@@ -7,7 +7,7 @@ import threading
 def main():
     # Kafka Config
     KAFKA_BROKER = 'localhost:29092'
-    TICKER_SYMBOLS = ["BINANCE:BTCUSDT","AAPL", "AMZN", "IC MARKETS:1"]
+    TICKER_SYMBOLS = ["IC MARKETS:1", "BINANCE:BTCUSDT","AAPL", "AMZN"]
 
 
 
@@ -35,6 +35,7 @@ def main():
 
     for thread in threads:
         threads[thread].start()
+    for thread in threads:
         threads[thread].join()
 
 if __name__ == "__main__":  

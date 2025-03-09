@@ -1,6 +1,6 @@
 class KafkaUtils:
     """KafkaUtils contains methods used by the Kafka instance."""
-    def __init__(self):
+    def __init__():
         """Placeholder initialisation function."""
         pass
 
@@ -27,7 +27,7 @@ class KafkaUtils:
     
 
 class DataBaseUtils:
-    def __init__(self):
+    def __init__():
         """Placeholder initialisation function."""
         pass
 
@@ -54,3 +54,17 @@ class DataBaseUtils:
                 database_name = database_name, 
                 table_name = f'raw_{updated_topic}')
         return raw_tables_dictionary
+    
+    def get_record_from_consumer_message(consumer_message: dict):
+        """Takes a dictionary containing a market trade and returns a tuple ready for insertion into a database.
+        
+        Args:
+            consumer_message (dictionary): The dictionary containing data on the trade.
+        """
+        conditions = str(consumer_message['c'])
+        price = float(consumer_message['p'])
+        ticker = str(consumer_message['s'])
+        timestamp = int(consumer_message['t'])
+        volume = float(consumer_message['v'])
+        record = (conditions, price, ticker, timestamp, volume)
+        return record
