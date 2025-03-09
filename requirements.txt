@@ -2,3 +2,4 @@ kafka-python
 flask
 websocket-client
 dotenv
+mysql-connector-python

@@ -1,3 +1,5 @@
 .env
 venv
 venv/
+FINANCE_DATABASE
+FINANCE_DATABASE-journal
