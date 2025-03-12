@@ -156,7 +156,7 @@ class RawTable(Table):
             trade_codes VARCHAR(127),
             price FLOAT NOT NULL,
             ticker VARCHAR(31) NOT NULL,
-            unix_timestamp INT NOT NULL,
+            unix_timestamp BIGINT NOT NULL,
             volume FLOAT
             )
             """

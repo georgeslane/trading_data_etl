@@ -1,13 +1,11 @@
 from apache_kafka.apache_kafka_producer import WebSocketConnection, Producer, Consumer
 from settings import FINHUB_API_KEY
-import json
-from kafka import KafkaConsumer
 import threading
 
 def main():
     # Kafka Config
     KAFKA_BROKER = 'localhost:29092'
-    TICKER_SYMBOLS = ["IC MARKETS:1", "BINANCE:BTCUSDT","AAPL", "AMZN"]
+    TICKER_SYMBOLS = ["AMZN","IC MARKETS:1", "BINANCE:BTCUSDT","AAPL"]
 
 
 
@@ -29,8 +27,8 @@ def main():
     )
 
     threads = {
-        "consumer_thread": threading.Thread(target=ConsumerInstance.run_consumers),
-        "producer_thread": threading.Thread(target=FinnHubConnection.start_websocket)
+        "producer_thread": threading.Thread(target=FinnHubConnection.start_websocket),
+        "consumer_thread": threading.Thread(target=ConsumerInstance.run_consumers)
     }
 
     for thread in threads:
