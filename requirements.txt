@@ -3,3 +3,4 @@ flask
 websocket-client
 dotenv
 mysql-connector-python
+apache-airflow-providers-mysql

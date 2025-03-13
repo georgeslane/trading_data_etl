@@ -5,20 +5,37 @@ import mysql.connector
 class DataBase:
     """DataBase is the base class for database initialisation.
     """
-    def __init__(self, name: str):
+    def __init__(self, name: str, user: str, password: str):
         """Stores the database name and initailises the database by creating a conection to the database.
 
         Args:
             name (string): The name of the database.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
         """
         self.name = name
+        self.user = user
+        self.password = password
 
     def connect(self):
+        """Creates a connection to the database using provided arguments.
+        """
         connection = mysql.connector.connect(
             host="localhost",
-            user="kafka_consumer",
-            password="password",
-            database="FINANCE_DATABASE"
+            user=self.user,
+            password=self.password,
+            database=self.name
+        )
+        return connection
+    
+    def airflow_connect(self):
+        """Creates a connection to the database from airflow, using the service name 'mysql' as host instead of localhost.
+        """
+        connection = mysql.connector.connect(
+            host="mysql",
+            user=self.user,
+            password=self.password,
+            database=self.name
         )
         return connection
 
@@ -26,14 +43,16 @@ class DataBase:
 class Table(DataBase):
     """Table inherits from Database and is the base class for all tables.
     """
-    def __init__(self, database_name: str, table_name: str):
+    def __init__(self, database_name: str, user: str, password: str, table_name: str):
         """Initialises Table by creating a database and storing the table name.
         
         Args:
             database_name (string): The name of the database being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
             table_name (string): The name of the table being created.
         """
-        super().__init__(database_name)
+        super().__init__(name=database_name, user=user,password=password)
         self.table_name = table_name
 
     def create_table(self, create_statement: str):
@@ -42,7 +61,11 @@ class Table(DataBase):
         Args:
             create_statement (string): The SQL statement used to create the table.
         """
-        connection = self.connect()
+        try:
+            connection = self.connect()
+        except:
+            connection = self.airflow_connect()
+
         cursor = connection.cursor()
         cursor.execute(create_statement)
         connection.commit()
@@ -56,7 +79,11 @@ class Table(DataBase):
             insert_statement (string): The SQL string used to insert the record into the table.
             record (tuple): The record being inserted into the table.
         """
-        connection = self.connect()
+        try:
+            connection = self.connect()
+        except:
+            connection = self.airflow_connect()
+
         cursor = connection.cursor()
         cursor.execute(insert_statement, record)
         connection.commit()
@@ -68,14 +95,15 @@ class TradeConditionsReferenceTable(Table):
     """TradeConditionsReferenceTable inherits from table and stores the trade condition codes against their meanings 
     for use in the cleaned tables.
     """
-    def __init__(self, database_name: str, table_name: str):
+    def __init__(self, database_name: str, user: str, password: str):
         """Initialises TradeConditionsReferenceTable by creating a reference table with trade code definitions.
         
         Args:
             database_name (string): The name of the database being created.
-            table_name (string): The name of the table being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
         """
-        super().__init__(database_name=database_name, table_name=table_name)
+        super().__init__(database_name=database_name, user=user, password=password, table_name="trade_conditions_reference_data")
         self.create_table_statement = """
             CREATE TABLE IF NOT EXISTS trade_conditions_reference_data (
             code INT PRIMARY KEY,
@@ -126,9 +154,9 @@ class TradeConditionsReferenceTable(Table):
             38:"Placeholder for 611 Exempt",
             39:"Corrected Consolidated Close",
             40:"Opened",
-            41:"Trade Through Exempt (TTE)",
+            41:"Trade Through Exempt (TTE)"
         }
-        self.insert_statement = f"""INSERT INTO {self.table_name}
+        self.insert_statement = f"""INSERT IGNORE INTO {self.table_name}
             (code, name) VALUES (%s, %s)
             """
         for code in self.trading_code_map:
@@ -141,22 +169,24 @@ class RawTable(Table):
     update and query the initial layer of tables storing raw stock data directly from the websocket connection. 
     The table created has fields: id, trade_conditions, price, ticker, timestamp, volume.
     """
-    def __init__(self, database_name: str, table_name: str):
+    def __init__(self, database_name: str, user: str, password: str, table_name: str):
         """Itialises the table if it does not already exist, using a specified create statement.
         
         Args:
             database_name (string): The name of the database being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
             table_name (string): The name of the table being created, with format 'raw_<stock_symbol>'.
         """
-        super().__init__(database_name, table_name)
+        super().__init__(database_name=database_name, user=user, password=password, table_name=table_name)
 
         self.create_table_statement = f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
-            id INT PRIMARY KEY AUTO_INCREMENT,
+            id BIGINT PRIMARY KEY AUTO_INCREMENT,
             trade_codes VARCHAR(127),
-            price FLOAT NOT NULL,
+            price FLOAT,
             ticker VARCHAR(31) NOT NULL,
-            unix_timestamp BIGINT NOT NULL,
+            unix_timestamp BIGINT,
             volume FLOAT
             )
             """
@@ -181,47 +211,93 @@ class RawTable(Table):
     
 class CleanedTable(Table):
     """CleanedTable inherits from table and contains methods to create and insert cleaned stock data into a table."""
-    def __init__(self, database_name: str, table_name: str):
+    def __init__(self, database_name: str, user: str, password: str, table_name: str):
         """Itialises the table if it does not already exist, using a specified create statement.
         
         Args:
             database_name (string): The name of the database being created.
-            table_name (string): The name of the table being created, with format 'raw_<stock_symbol>'.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
+            table_name (string): The name of the table being created, with format 'cleaned_<stock_symbol>'.
         """
-        super().__init__(database_name=database_name, table_name=table_name)
-        self.raw_table_name = self.table_name.replace("cleaned", "raw")
+        super().__init__(database_name=database_name, user=user, password=password, table_name=table_name)
         self.create_table_statement = f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
-            id INT PRIMARY KEY,
-            trade_conditions VARCHAR(511),
-            price FLOAT NOT NULL,
+            id BIGINT PRIMARY KEY,
+            trade_conditions JSON,
+            price FLOAT,
             ticker VARCHAR(31) NOT NULL,
-            timestamp DATETIME NOT NULL,
+            timestamp DATETIME,
             volume FLOAT
             )
-            """
-        
-        self.add_records_statement = f"""
-            INSERT INTO {self.table_name} (id, trade_conditions, price, ticker, timestamp, volume)
-                SELECT {self.raw_table_name}.id, trade_conditions_reference_data.trade_conditions, {self.raw_table_name}.price, 
-                {self.raw_table_name}.ticker, FROM_UNIXTIME({self.raw_table_name}.unix_timestamp / 1000), 
-                {self.raw_table_name}.volume FROM {self.raw_table_name}
-                LEFT JOIN trade_conditions_reference_data ON trade_conditions_reference_data.code = {self.raw_table_name}.trade_codes
-                WHERE {self.raw_table_name}.id > (SELECT MAX(id) FROM {self.table_name})
             """
 
         self.create_table(create_statement=self.create_table_statement)
         
 
-
-
-
 class AggregatedTable(Table):
     """AggregatedTable inherits from Table and contains methods to aggregate raw stock data and add new aggregated fields."""
-    pass
+    def __init__(self, database_name: str, user: str, password: str, table_name: str):
+        """Itialises the table if it does not already exist, using a specified create statement.
+        
+        Args:
+            database_name (string): The name of the database being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
+            table_name (string): The name of the table being created, with format 'aggregated_<stock_symbol>'.
+        """
+        super().__init__(database_name=database_name, user=user, password=password, table_name=table_name)
+        self.create_table_statement = f"""
+            CREATE TABLE IF NOT EXISTS {self.table_name} (
+            start_id BIGINT NOT NULL,
+            aggregation_period INT NOT NULL,
+            ticker VARCHAR(31) NOT NULL,
+            start_timestamp DATETIME,
+            trade_conditions JSON,
+            number_of_trades INT,
+            total_volume FLOAT,
+            average_volume FLOAT,
+            average_price FLOAT,
+            maximum_price FLOAT,
+            minimum_price FLOAT,
+            opening_price FLOAT,
+            closing_price FLOAT,
+            PRIMARY KEY (start_id, aggregation_period)
+            )
+            """
+        
+        self.create_table(create_statement=self.create_table_statement)
 
 
 class AccessTable(Table):
     """AccessTable inherits from Table and contains methods to union all aggregated stock data into one access layer table."""
-    pass
+    def __init__(self, database_name: str, user: str, password: str):
+        """Itialises the table if it does not already exist, using a specified create statement.
+        
+        Args:
+            database_name (string): The name of the database being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
+        """
+        super().__init__(database_name=database_name, user=user, password=password, table_name="access_layer_stock_table")
 
+        self.create_table_statement = f"""
+            CREATE TABLE IF NOT EXISTS {self.table_name} (
+            start_id BIGINT NOT NULL,
+            aggregation_period INT NOT NULL,
+            ticker VARCHAR(31) NOT NULL,
+            start_timestamp DATETIME,
+            trade_conditions JSON,
+            number_of_trades INT,
+            total_volume FLOAT,
+            average_volume FLOAT,
+            average_price FLOAT,
+            maximum_price FLOAT,
+            minimum_price FLOAT,
+            opening_price FLOAT,
+            closing_price FLOAT,
+            PRIMARY KEY (start_id, aggregation_period, ticker)
+            )
+            """
+        
+        self.create_table(create_statement=self.create_table_statement)

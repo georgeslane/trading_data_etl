@@ -1,43 +1,33 @@
 x-airflow-common:
   &airflow-common
-  # In order to add custom dependencies or upgrade provider packages you can use your extended image.
-  # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
-  # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.5}
-  # build: .
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://airflow:airflow@mysql:3306/airflow
-    # AIRFLOW__CELERY__RESULT_BACKEND: db+mysql://airflow:airflow@db/airflow
-    # AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
-    # yamllint disable rule:line-length
-    # Use simple http server on scheduler for health checks
-    # See https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/check-health.html#scheduler-health-check-server
-    # yamllint enable rule:line-length
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
-    # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
-    # The following line can be used to set a custom config file, stored in the local config folder
-    # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
     - ./airflow/config:/opt/airflow/config
     - ./airflow/plugins:/opt/airflow/plugins
+    - ./airflow/tasks:/opt/airflow/tasks
+    - ./config:/opt/config
+    - ./database:/opt/database    
+    - ./utils:/opt/utils
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
     mysql:
       condition: service_healthy
 
-
+# Sets up the Kafka service.
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.4 
@@ -49,7 +39,7 @@ services:
     ports:
       - 22181:2181
 
-
+# Sets up the kafka broker
   kafka:
     image: confluentinc/cp-kafka:7.4.4 
     container_name: broker
@@ -68,7 +58,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-
+# Sets up a database for kafka and airflow useage
   mysql:
     image: mysql:latest
     container_name: mysql
@@ -90,7 +80,7 @@ services:
       retries: 3
       start_period: 10s
 
-
+# Starts the airflow websrver
   airflow-webserver:
     <<: *airflow-common
     command: webserver
@@ -108,6 +98,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
+# Starts the airflow schedular container
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
@@ -123,7 +114,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-
+# Starts airflow
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
@@ -173,8 +164,22 @@ services:
           echo "   https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#before-you-begin"
           echo
         fi
-        mkdir -p /airflow/logs /airflow/dags /airflow/plugins
-        chown -R "${AIRFLOW_UID}:0" /airflow/{logs,dags,plugins}
+        mkdir -p /airflow/logs /airflow/dags /airflow/plugins /airflow/tasks
+        chown -R "${AIRFLOW_UID}:0" /airflow/{logs,dags,plugins,tasks}
+        echo "Waiting for MySQL to be ready..."
+        until mysql -h mysql -u root -proot -e "SELECT 1" &> /dev/null; do
+          sleep 5
+        done
+        echo "Adding MySQL connection to Airflow..."
+        airflow db init
+        airflow connections add 'mysql_finance_db' \
+          --conn-type 'mysql' \
+          --conn-host 'mysql' \
+          --conn-login 'airflow_user' \
+          --conn-password 'password' \
+          --conn-schema 'FINANCE_DATABASE' \
+          --conn-port '3306'
+        echo "Airflow MySQL connection added successfully."
         exec /entrypoint airflow version
     # yamllint enable rule:line-length
     environment:
@@ -191,6 +196,7 @@ services:
       mysql:
         condition: service_healthy
 
+# Starts airflow command line
   airflow-cli:
     <<: *airflow-common
     profiles:
@@ -198,12 +204,10 @@ services:
     environment:
       <<: *airflow-common-env
       CONNECTION_CHECK_MAX_COUNT: "0"
-    # Workaround for entrypoint issue. See: https://github.com/apache/airflow/issues/16252
     command:
       - bash
       - -c
       - airflow
-
 
 volumes:
   mysql-db:

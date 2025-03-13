@@ -1,12 +1,10 @@
 from apache_kafka.apache_kafka_producer import WebSocketConnection, Producer, Consumer
-from settings import FINHUB_API_KEY
+from config.settings import FINHUB_API_KEY, KAFKA_DATABASE_PASSWORD, KAFKA_DATABASE_USER
 import threading
 
 def main():
-    # Kafka Config
     KAFKA_BROKER = 'localhost:29092'
     TICKER_SYMBOLS = ["AMZN","IC MARKETS:1", "BINANCE:BTCUSDT","AAPL"]
-
 
 
     ProducerInstance = Producer(
@@ -17,7 +15,9 @@ def main():
     ConsumerInstance = Consumer(
         ticker_symbols=TICKER_SYMBOLS,
         broker=KAFKA_BROKER,
-        database_name="FINANCE_DATABASE"
+        database_name="FINANCE_DATABASE",
+        password=KAFKA_DATABASE_PASSWORD,
+        user=KAFKA_DATABASE_USER
     )
 
     FinnHubConnection = WebSocketConnection(

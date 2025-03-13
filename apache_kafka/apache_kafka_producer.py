@@ -3,7 +3,7 @@ import json
 from websocket._app import WebSocketApp
 from kafka import KafkaConsumer, KafkaProducer
 import concurrent.futures
-from utils.utils import KafkaUtils, DataBaseUtils
+from utils.utils import Utils, DataBaseUtils
 from database.database import RawTable
 
 
@@ -92,7 +92,7 @@ class Producer(KafkaProducer):
             ticker_symbols (list): A list of stock symbols that the websocket connection is subscribed to.
         """
         self.broker = broker
-        self.topics_dictionary = KafkaUtils.update_topic_names(topics=ticker_symbols)
+        self.topics_dictionary = Utils.update_topic_names(topics=ticker_symbols)
         super().__init__(
             bootstrap_servers=self.broker, 
             value_serializer=lambda v: json.dumps(v).encode('utf-8')
@@ -134,21 +134,27 @@ class Producer(KafkaProducer):
 class Consumer():
     """Consumer sets up several consumers in parrallel to subscribe to each topic and publish recieved data to a database.
     """
-    def __init__(self, ticker_symbols: list, broker: str, database_name: str):
+    def __init__(self, ticker_symbols: list, broker: str, database_name: str, user: str, password: str):
         """Initialises Consumer by storing the broker, the database name and the tables in the database.
         
         Args:
             ticker_symbols (list): The list of symbols the websocket connection is subscribed to.
             broker(string): The port that is running the kafka broker.
             database_name (string): The name of the database that will be used to store the websocket data.
+            user (string): The database user.
+            password (string): Used to authenticate the database user.
         """
         self.broker = broker
         self.database_name = database_name
-        self.topics_dictionary = KafkaUtils.update_topic_names(topics=ticker_symbols)
+        self.user = user
+        self.password = password
+        self.topics_dictionary = Utils.update_topic_names(topics=ticker_symbols)
         self.raw_tables = DataBaseUtils.get_raw_tables(
             topics=ticker_symbols, 
             table_class=RawTable, 
-            database_name=self.database_name
+            database_name=self.database_name,
+            user=self.user,
+            password=self.password
         )
 
     def setup_consumers(self, topic: str):
