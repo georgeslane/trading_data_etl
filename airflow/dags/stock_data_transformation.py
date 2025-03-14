@@ -2,19 +2,17 @@ from datetime import datetime, timedelta
 import os
 import sys
 from airflow import DAG
-from airflow.decorators import task
 from airflow.utils.task_group import TaskGroup
-from airflow.providers.mysql.hooks.mysql import MySqlHook
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.providers.common.sql.hooks.sql import fetch_all_handler
-
-
+from airflow.models import DagRun
 
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from tasks.clean_data import initialise_tables, get_table_names, clean_raw_data
-from tasks.sql_scripts import READ_RAW_DATA, INSERT_CLEANED_DATA
+from tasks.transform_data import select_aggregation_tasks
+from tasks.sql_scripts import READ_RAW_DATA, INSERT_CLEANED_DATA, AGGREGATE_DATA, UNION_DATA
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from config.settings import AIRFLOW_DATABASE_PASSWORD, AIRFLOW_DATABASE_USER
 from utils.utils import Utils
@@ -83,11 +81,13 @@ with DAG(
                 raw_query_result=query_raw_tables.output,
                 reference_codes=query_reference_trade_code_table.output
             )
-            if str(clean_data)[0] == "(":
+
+            if "(" in str(clean_data):
                 insert_cleaned_query = INSERT_CLEANED_DATA.format(f"cleaned_{default_args['table_names'][stock]}",
                                                               clean_data)
             else:
                 insert_cleaned_query = """SELECT 1;"""
+                print(str(clean_data))
             
             insert_into_clean_tables = SQLExecuteQueryOperator(
                 task_id=f"insert_into_cleaned_{default_args['table_names'][stock]}_table",
@@ -102,57 +102,126 @@ with DAG(
                 >>clean_data
                 >>insert_into_clean_tables
             )
+        
             
+    with TaskGroup(group_id="Transform_Data") as Transform_Data:
 
-            
-            
-            
+        union_query = ""
 
-    
-    
-    
+        for symbol in default_args["table_names"]:
+
+            ten_minute_aggregation_query = AGGREGATE_DATA.format(
+                f"aggregated_{default_args["table_names"][symbol]}",
+                "10",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                "10"
+            )
+
+            aggregate_data_over_ten_minutes = SQLExecuteQueryOperator(
+                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_ten_minutes",
+                sql=ten_minute_aggregation_query,
+                autocommit=True,
+                conn_id="mysql_finance_db",
+                database=default_args["database_name"]
+            )
+
+            one_hour_aggregation_query = AGGREGATE_DATA.format(
+                f"aggregated_{default_args["table_names"][symbol]}",
+                "60",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                "60"
+            )
+
+            aggregate_data_over_one_hour = SQLExecuteQueryOperator(
+                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_hour",
+                sql=one_hour_aggregation_query,
+                autocommit=True,
+                conn_id="mysql_finance_db",
+                database=default_args["database_name"]
+            )
+
+            one_day_aggregation_query = AGGREGATE_DATA.format(
+                f"aggregated_{default_args["table_names"][symbol]}",
+                "1440",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                f"cleaned_{default_args["table_names"][symbol]}",
+                "1440"
+            )
+
+            aggregate_data_over_one_day = SQLExecuteQueryOperator(
+                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_day",
+                sql=one_day_aggregation_query,
+                autocommit=True,
+                conn_id="mysql_finance_db",
+                database=default_args["database_name"]
+            )
+
+            branch_aggregation_tasks = select_aggregation_tasks.override(
+                task_id=f"select_{default_args["table_names"][symbol]}_aggregation_tasks"
+                )(table_name=default_args["table_names"][symbol]
+                  )
+            
+            union_query += UNION_DATA.format(f"aggregated_{default_args["table_names"][symbol]}")
+
+            (
+                branch_aggregation_tasks
+                >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
+            )
+            # (
+            #     aggregate_data_over_one_day 
+            #     >> aggregate_data_over_one_hour 
+            #     >> aggregate_data_over_ten_minutes
+            # )
+            # (  
+            #     aggregate_data_over_one_hour 
+            #     >> aggregate_data_over_ten_minutes
+            # )
+            # (
+            #     aggregate_data_over_ten_minutes
+            # )
+
+        union_query = union_query[0:-8] + ";"
+
+        union_data = SQLExecuteQueryOperator(
+            task_id=f"union_data",
+            sql=union_query,
+            autocommit=True,
+            conn_id="mysql_finance_db",
+            database=default_args["database_name"]
+        )
+
+
+
+        (
+            branch_aggregation_tasks
+            >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
+            >> union_data
+        )
+
+
+
+
+
     
     (
         Build_Tables
         >> Clean_Data
+        >> Transform_Data
     )
     
     
     
     
     
-    # Task to query the raw tables for their data since this dag ran last
-
-
-    # Task to query the reference table for the codes
-
-
-    # Task to clean up the table by making timestamp readabale and changing codes
-
-
-    # Task to insert this data into new table
-
     
     
     
     
-    
-    # with TaskGroup(group_id="Transform_Data") as Transform_Data:
-    
+
     
     
-    
-    
-    # Task to query this new table for all new data
-
-
-    # Branch task based on last time this dag did what
-
-
-    # Branched tasks to aggregate data by 5, 15 or 60 minutes, add fields
-
-
-    # Moving out of branch, task to insert data into aggregated table
-
-
-    # Task to union tables together into one final table

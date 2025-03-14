@@ -90,10 +90,8 @@ def clean_raw_data(raw_query_result: list, reference_codes: list):
         timestamp = datetime.fromtimestamp(int(record["unix_timestamp"])/1000).strftime("%Y-%m-%d %H:%M:%S")
         output_record = (record["id"], json.dumps(trade_conditions), record["price"], record["ticker"], timestamp, record["volume"])
         output_string = f"{output_string}{str(output_record)}, "
-    if len(raw_query_result) == 0:
-        return None
-    else:
-        return output_string.rstrip(", ")
+    
+    return output_string.rstrip(", ")
 
     
         

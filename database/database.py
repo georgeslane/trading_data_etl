@@ -249,6 +249,7 @@ class AggregatedTable(Table):
         super().__init__(database_name=database_name, user=user, password=password, table_name=table_name)
         self.create_table_statement = f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
+            aggregated_id BIGINT AUTO_INCREMENT,
             start_id BIGINT NOT NULL,
             aggregation_period INT NOT NULL,
             ticker VARCHAR(31) NOT NULL,
@@ -262,7 +263,7 @@ class AggregatedTable(Table):
             minimum_price FLOAT,
             opening_price FLOAT,
             closing_price FLOAT,
-            PRIMARY KEY (start_id, aggregation_period)
+            PRIMARY KEY (aggregated_id, aggregation_period)
             )
             """
         
@@ -283,6 +284,7 @@ class AccessTable(Table):
 
         self.create_table_statement = f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
+            aggregated_id BIGINT,
             start_id BIGINT NOT NULL,
             aggregation_period INT NOT NULL,
             ticker VARCHAR(31) NOT NULL,
@@ -296,7 +298,7 @@ class AccessTable(Table):
             minimum_price FLOAT,
             opening_price FLOAT,
             closing_price FLOAT,
-            PRIMARY KEY (start_id, aggregation_period, ticker)
+            PRIMARY KEY (aggregated_id, aggregation_period, ticker)
             )
             """
         

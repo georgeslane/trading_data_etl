@@ -1,0 +1,18 @@
+[2025-03-13T23:48:34.199+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-13T23:48:34.238+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.initialise_tables manual__2025-03-13T23:48:31.654307+00:00 [queued]>
+[2025-03-13T23:48:34.247+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.initialise_tables manual__2025-03-13T23:48:31.654307+00:00 [queued]>
+[2025-03-13T23:48:34.247+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-13T23:48:34.259+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Build_Tables.initialise_tables> on 2025-03-13 23:48:31.654307+00:00
+[2025-03-13T23:48:34.268+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Build_Tables.initialise_tables', 'manual__2025-03-13T23:48:31.654307+00:00', '--job-id', '315', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp28yxl06y']
+[2025-03-13T23:48:34.270+0000] {standard_task_runner.py:105} INFO - Job 315: Subtask Build_Tables.initialise_tables
+[2025-03-13T23:48:34.272+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3149) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-13T23:48:34.272+0000] {standard_task_runner.py:72} INFO - Started process 3150 to run task
+[2025-03-13T23:48:34.382+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.initialise_tables manual__2025-03-13T23:48:31.654307+00:00 [running]> on host 7fee16c5422e
+[2025-03-13T23:48:34.560+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Build_Tables.initialise_tables' AIRFLOW_CTX_EXECUTION_DATE='2025-03-13T23:48:31.654307+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-13T23:48:31.654307+00:00'
+[2025-03-13T23:48:34.561+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-13T23:48:36.035+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-13T23:48:36.065+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-13T23:48:36.065+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Build_Tables.initialise_tables, run_id=manual__2025-03-13T23:48:31.654307+00:00, execution_date=20250313T234831, start_date=20250313T234834, end_date=20250313T234836
+[2025-03-13T23:48:36.177+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-13T23:48:36.231+0000] {taskinstance.py:3901} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2025-03-13T23:48:36.235+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
