@@ -17,7 +17,7 @@ FROM {}
 INSERT_CLEANED_DATA="""
 INSERT INTO {}
 (id, trade_conditions, price, ticker, timestamp, volume)
-VALUES {};
+{};
 """
 
 AGGREGATE_DATA="""
@@ -45,5 +45,8 @@ GROUP BY ticker;
 """
 
 UNION_DATA = """
-SELECT * FROM {} UNION 
+INSERT IGNORE INTO access_layer_stock_table
+(aggregated_id, start_id, aggregation_period, ticker, start_timestamp, 
+trade_conditions, number_of_trades, total_volume, average_volume, 
+average_price, maximum_price, minimum_price, opening_price, closing_price)
 """

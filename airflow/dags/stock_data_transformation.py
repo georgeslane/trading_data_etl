@@ -5,9 +5,6 @@ from airflow import DAG
 from airflow.utils.task_group import TaskGroup
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.providers.common.sql.hooks.sql import fetch_all_handler
-from airflow.models import DagRun
-
-
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from tasks.clean_data import initialise_tables, get_table_names, clean_raw_data
@@ -24,19 +21,20 @@ default_args = {
     "tickers": ["BINANCE:BTCUSDT", "AMZN"],
     "database_name": "FINANCE_DATABASE",
     "database_user": "airflow_user",
-    "database_password": "password"
+    "database_password": "password",
 }
-default_args["table_names"] = Utils.update_topic_names(default_args["tickers"])
+default_args["table_names"] = Utils.update_topic_names(topics=default_args["tickers"])
 
 with DAG(
     dag_id="Stock_Data_Transformation_Dag",
     description="This dag contains tasks to build a stock trade database, clean raw trade data, add the data to tables in the database, and aggregate and join  the data together.",
     default_args=default_args,
+    schedule_interval=timedelta(minutes=10)
 ) as dag:
     
     with TaskGroup(group_id="Build_Tables") as Build_Tables:
 
-        get_table_names = get_table_names(tickers=default_args["tickers"]
+        get_table_sufixxes = get_table_names(tickers=default_args["tickers"],
                                           )
     
         initialise_tables = initialise_tables(ticker_symbols=default_args["tickers"], 
@@ -46,7 +44,7 @@ with DAG(
                                           )
         
         (
-            get_table_names
+            get_table_sufixxes
             >> initialise_tables
         )
     
@@ -63,7 +61,7 @@ with DAG(
             handler=Utils.cursor_results_to_dict
             )
 
-        for stock in default_args["table_names"]:
+        for stock in default_args['table_names']:
 
             raw_query = READ_RAW_DATA.format(f"raw_{default_args['table_names'][stock]}",
                                  f"cleaned_{default_args['table_names'][stock]}")
@@ -82,12 +80,9 @@ with DAG(
                 reference_codes=query_reference_trade_code_table.output
             )
 
-            if "(" in str(clean_data):
-                insert_cleaned_query = INSERT_CLEANED_DATA.format(f"cleaned_{default_args['table_names'][stock]}",
-                                                              clean_data)
-            else:
-                insert_cleaned_query = """SELECT 1;"""
-                print(str(clean_data))
+            insert_cleaned_query = INSERT_CLEANED_DATA.format(
+                f"cleaned_{default_args['table_names'][stock]}",
+                clean_data)
             
             insert_into_clean_tables = SQLExecuteQueryOperator(
                 task_id=f"insert_into_cleaned_{default_args['table_names'][stock]}_table",
@@ -106,7 +101,7 @@ with DAG(
             
     with TaskGroup(group_id="Transform_Data") as Transform_Data:
 
-        union_query = ""
+        union_query = UNION_DATA
 
         for symbol in default_args["table_names"]:
 
@@ -166,26 +161,14 @@ with DAG(
                 )(table_name=default_args["table_names"][symbol]
                   )
             
-            union_query += UNION_DATA.format(f"aggregated_{default_args["table_names"][symbol]}")
+            union_query = f"{union_query} SELECT * FROM aggregated_{default_args["table_names"][symbol]} UNION"
 
             (
                 branch_aggregation_tasks
                 >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
             )
-            # (
-            #     aggregate_data_over_one_day 
-            #     >> aggregate_data_over_one_hour 
-            #     >> aggregate_data_over_ten_minutes
-            # )
-            # (  
-            #     aggregate_data_over_one_hour 
-            #     >> aggregate_data_over_ten_minutes
-            # )
-            # (
-            #     aggregate_data_over_ten_minutes
-            # )
 
-        union_query = union_query[0:-8] + ";"
+        union_query = union_query[0:-6] + ";"
 
         union_data = SQLExecuteQueryOperator(
             task_id=f"union_data",
@@ -196,10 +179,9 @@ with DAG(
         )
 
 
-
         (
             branch_aggregation_tasks
-            >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
+            >> aggregate_data_over_ten_minutes
             >> union_data
         )
 

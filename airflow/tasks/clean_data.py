@@ -91,6 +91,10 @@ def clean_raw_data(raw_query_result: list, reference_codes: list):
         output_record = (record["id"], json.dumps(trade_conditions), record["price"], record["ticker"], timestamp, record["volume"])
         output_string = f"{output_string}{str(output_record)}, "
     
+    output_string = f"VALUES {output_string}"
+    if output_string == "VALUES ":
+        output_string = "SELECT '0', NULL, NULL, 'NULL', NULL, NULL WHERE FALSE;"
+    
     return output_string.rstrip(", ")
 
     
