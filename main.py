@@ -1,10 +1,10 @@
 from apache_kafka.apache_kafka_producer import WebSocketConnection, Producer, Consumer
-from config.settings import FINHUB_API_KEY, KAFKA_DATABASE_PASSWORD, KAFKA_DATABASE_USER
+from config.settings import FINHUB_API_KEY, KAFKA_DATABASE_PASSWORD, KAFKA_DATABASE_USER, STOCK_LIST
 import threading
 
 def main():
     KAFKA_BROKER = 'localhost:29092'
-    TICKER_SYMBOLS = ["AMZN","IC MARKETS:1", "BINANCE:BTCUSDT","AAPL"]
+    TICKER_SYMBOLS = STOCK_LIST
 
 
     ProducerInstance = Producer(

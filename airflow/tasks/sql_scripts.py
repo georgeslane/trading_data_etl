@@ -46,7 +46,7 @@ GROUP BY ticker;
 
 UNION_DATA = """
 INSERT IGNORE INTO access_layer_stock_table
-(aggregated_id, start_id, aggregation_period, ticker, start_timestamp, 
+(start_id, aggregation_period, ticker, start_timestamp, 
 trade_conditions, number_of_trades, total_volume, average_volume, 
 average_price, maximum_price, minimum_price, opening_price, closing_price)
 """

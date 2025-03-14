@@ -284,7 +284,6 @@ class AccessTable(Table):
 
         self.create_table_statement = f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
-            aggregated_id BIGINT,
             start_id BIGINT NOT NULL,
             aggregation_period INT NOT NULL,
             ticker VARCHAR(31) NOT NULL,
@@ -298,7 +297,7 @@ class AccessTable(Table):
             minimum_price FLOAT,
             opening_price FLOAT,
             closing_price FLOAT,
-            PRIMARY KEY (aggregated_id, aggregation_period, ticker)
+            PRIMARY KEY (start_id, aggregation_period, ticker)
             )
             """
         

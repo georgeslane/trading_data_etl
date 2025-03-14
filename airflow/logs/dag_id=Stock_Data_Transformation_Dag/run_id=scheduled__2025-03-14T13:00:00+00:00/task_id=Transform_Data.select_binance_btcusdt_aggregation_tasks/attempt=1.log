@@ -1,0 +1,20 @@
+[2025-03-14T13:10:12.589+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T13:10:12.658+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_binance_btcusdt_aggregation_tasks scheduled__2025-03-14T13:00:00+00:00 [queued]>
+[2025-03-14T13:10:12.673+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_binance_btcusdt_aggregation_tasks scheduled__2025-03-14T13:00:00+00:00 [queued]>
+[2025-03-14T13:10:12.673+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-14T13:10:12.689+0000] {taskinstance.py:2890} INFO - Executing <Task(_BranchPythonDecoratedOperator): Transform_Data.select_binance_btcusdt_aggregation_tasks> on 2025-03-14 13:00:00+00:00
+[2025-03-14T13:10:12.704+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3092) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-14T13:10:12.705+0000] {standard_task_runner.py:72} INFO - Started process 3093 to run task
+[2025-03-14T13:10:12.703+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.select_binance_btcusdt_aggregation_tasks', 'scheduled__2025-03-14T13:00:00+00:00', '--job-id', '1361', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp0ubc0pp5']
+[2025-03-14T13:10:12.708+0000] {standard_task_runner.py:105} INFO - Job 1361: Subtask Transform_Data.select_binance_btcusdt_aggregation_tasks
+[2025-03-14T13:10:12.903+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_binance_btcusdt_aggregation_tasks scheduled__2025-03-14T13:00:00+00:00 [running]> on host de76d7e767a3
+[2025-03-14T13:10:13.167+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.select_binance_btcusdt_aggregation_tasks' AIRFLOW_CTX_EXECUTION_DATE='2025-03-14T13:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-14T13:00:00+00:00'
+[2025-03-14T13:10:13.168+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-14T13:10:13.227+0000] {python.py:240} INFO - Done. Returned value was: Transform_Data.aggregate_binance_btcusdt_data_over_ten_minutes
+[2025-03-14T13:10:13.228+0000] {branch.py:38} INFO - Branch into Transform_Data.aggregate_binance_btcusdt_data_over_ten_minutes
+[2025-03-14T13:10:13.229+0000] {skipmixin.py:233} INFO - Following branch ('Transform_Data.aggregate_binance_btcusdt_data_over_ten_minutes',)
+[2025-03-14T13:10:13.283+0000] {skipmixin.py:281} INFO - Skipping tasks [('Transform_Data.aggregate_binance_btcusdt_data_over_one_day', -1), ('Transform_Data.aggregate_binance_btcusdt_data_over_one_hour', -1)]
+[2025-03-14T13:10:13.404+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-14T13:10:13.404+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.select_binance_btcusdt_aggregation_tasks, run_id=scheduled__2025-03-14T13:00:00+00:00, execution_date=20250314T130000, start_date=20250314T131012, end_date=20250314T131013
+[2025-03-14T13:10:13.566+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-14T13:10:13.623+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
