@@ -1,0 +1,68 @@
+[2025-03-15T13:25:24.578+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-15T13:25:24.735+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_coin.union_coin_data scheduled__2025-03-15T13:00:00+00:00 [queued]>
+[2025-03-15T13:25:24.765+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_coin.union_coin_data scheduled__2025-03-15T13:00:00+00:00 [queued]>
+[2025-03-15T13:25:24.767+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-15T13:25:24.798+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Transform_Data.Transform_coin.union_coin_data> on 2025-03-15 13:00:00+00:00
+[2025-03-15T13:25:24.820+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.Transform_coin.union_coin_data', 'scheduled__2025-03-15T13:00:00+00:00', '--job-id', '967', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpvbghfid1']
+[2025-03-15T13:25:24.820+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=460) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-15T13:25:24.824+0000] {standard_task_runner.py:72} INFO - Started process 469 to run task
+[2025-03-15T13:25:24.825+0000] {standard_task_runner.py:105} INFO - Job 967: Subtask Transform_Data.Transform_coin.union_coin_data
+[2025-03-15T13:25:25.146+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_coin.union_coin_data scheduled__2025-03-15T13:00:00+00:00 [running]> on host 3b9677d4face
+[2025-03-15T13:25:25.544+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.Transform_coin.union_coin_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T13:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T13:00:00+00:00'
+[2025-03-15T13:25:25.545+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-15T13:25:25.548+0000] {sql.py:295} INFO - Executing: 
+INSERT IGNORE INTO access_layer_stock_table
+(start_id, aggregation_period, ticker, start_timestamp, 
+trade_conditions, number_of_trades, total_volume, average_volume, 
+average_price, maximum_price, minimum_price, opening_price, closing_price)
+SELECT 
+    start_id, 
+    aggregation_period, 
+    ticker, 
+    start_timestamp, 
+    trade_conditions, 
+    number_of_trades, 
+    total_volume, 
+    average_volume, 
+    average_price, 
+    maximum_price, 
+    minimum_price, 
+    opening_price, 
+    closing_price 
+FROM aggregated_coin;
+[2025-03-15T13:25:25.610+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-15T13:25:25.686+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-15T13:25:25.696+0000] {sql.py:511} INFO - Running statement: 
+INSERT IGNORE INTO access_layer_stock_table
+(start_id, aggregation_period, ticker, start_timestamp, 
+trade_conditions, number_of_trades, total_volume, average_volume, 
+average_price, maximum_price, minimum_price, opening_price, closing_price)
+SELECT 
+    start_id, 
+    aggregation_period, 
+    ticker, 
+    start_timestamp, 
+    trade_conditions, 
+    number_of_trades, 
+    total_volume, 
+    average_volume, 
+    average_price, 
+    maximum_price, 
+    minimum_price, 
+    opening_price, 
+    closing_price 
+FROM aggregated_coin;, parameters: None
+[2025-03-15T13:25:25.697+0000] {sql.py:520} INFO - Rows affected: 0
+[2025-03-15T13:25:25.701+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:470 DeprecationWarning: Import of fetch_all_handler from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T13:25:25.706+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T13:25:25.708+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T13:25:25.710+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T13:25:25.780+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-15T13:25:25.783+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.Transform_coin.union_coin_data, run_id=scheduled__2025-03-15T13:00:00+00:00, execution_date=20250315T130000, start_date=20250315T132524, end_date=20250315T132525
+[2025-03-15T13:25:25.992+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-15T13:25:26.142+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-15T13:25:26.147+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

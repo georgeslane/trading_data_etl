@@ -199,11 +199,51 @@ class RawTable(Table):
         
         self.create_table(self.create_table_statement)
 
-    def insert_raw_stock_record(self, record: dict):
+    def insert_stock_record(self, record: dict):
         """Inserts a new record into the raw table.
         
         Args:
             record (dictionary): The stock trade record being inserted into the table.
+        """
+        insertable_record = DataBaseUtils.get_record_from_consumer_message(record)
+        self.insert_single_record(insert_statement=self.insert_record_statement, record=insertable_record)
+
+
+class NewsTable(Table):
+    """NewsTable inherits from table and contains methods to create and insert news data on stocks into a table."""
+    def __init__(self, database_name: str, user: str, password: str, table_name: str):
+        """Itialises the table if it does not already exist, using a specified create statement.
+        
+        Args:
+            database_name (string): The name of the database being created.
+            user (string): The name of the database user opening the connection.
+            password (string): Required to authenticate the user.
+            table_name (string): The name of the table being created, with format 'cleaned_<stock_symbol>'.
+        """
+        super().__init__(database_name=database_name, user=user, password=password, table_name=table_name)
+        self.create_table_statement = f"""
+        CREATE TABLE IF NOT EXISTS {self.table_name} (
+        source_id INT PRIMARY KEY,
+        unix_timestamp INT,
+        headline VARCHAR(511),
+        ticker VARCHAR(31),
+        source_site VARCHAR(63),
+        summary VARCHAR(511)
+        )
+        """
+        self.create_table(create_statement=self.create_table_statement)
+
+        self.insert_record_statement = f"""
+            INSERT IGNORE INTO {self.table_name} 
+            (source_id, unix_timestamp, headline, ticker, source_site, summary) 
+            VALUES (%s, %s, %s, %s, %s, %s)
+            """
+        
+    def insert_stock_record(self, record: dict):
+        """Inserts a new record into the raw table.
+        
+        Args:
+            record (dictionary): The stock news record being inserted into the table.
         """
         insertable_record = DataBaseUtils.get_record_from_consumer_message(record)
         self.insert_single_record(insert_statement=self.insert_record_statement, record=insertable_record)

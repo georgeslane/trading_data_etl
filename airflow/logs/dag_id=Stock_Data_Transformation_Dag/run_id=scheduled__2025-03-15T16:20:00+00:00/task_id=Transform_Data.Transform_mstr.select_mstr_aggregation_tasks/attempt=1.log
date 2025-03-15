@@ -1,0 +1,20 @@
+[2025-03-15T16:30:13.196+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-15T16:30:13.264+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_mstr.select_mstr_aggregation_tasks scheduled__2025-03-15T16:20:00+00:00 [queued]>
+[2025-03-15T16:30:13.286+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_mstr.select_mstr_aggregation_tasks scheduled__2025-03-15T16:20:00+00:00 [queued]>
+[2025-03-15T16:30:13.287+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-15T16:30:13.305+0000] {taskinstance.py:2890} INFO - Executing <Task(_BranchPythonDecoratedOperator): Transform_Data.Transform_mstr.select_mstr_aggregation_tasks> on 2025-03-15 16:20:00+00:00
+[2025-03-15T16:30:13.317+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1296) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-15T16:30:13.318+0000] {standard_task_runner.py:72} INFO - Started process 1303 to run task
+[2025-03-15T16:30:13.317+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.Transform_mstr.select_mstr_aggregation_tasks', 'scheduled__2025-03-15T16:20:00+00:00', '--job-id', '1589', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp438upstx']
+[2025-03-15T16:30:13.319+0000] {standard_task_runner.py:105} INFO - Job 1589: Subtask Transform_Data.Transform_mstr.select_mstr_aggregation_tasks
+[2025-03-15T16:30:13.480+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_mstr.select_mstr_aggregation_tasks scheduled__2025-03-15T16:20:00+00:00 [running]> on host 3b9677d4face
+[2025-03-15T16:30:13.670+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.Transform_mstr.select_mstr_aggregation_tasks' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T16:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T16:20:00+00:00'
+[2025-03-15T16:30:13.671+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-15T16:30:13.723+0000] {python.py:240} INFO - Done. Returned value was: Transform_Data.Transform_mstr.aggregate_mstr_data_over_ten_minutes
+[2025-03-15T16:30:13.724+0000] {branch.py:38} INFO - Branch into Transform_Data.Transform_mstr.aggregate_mstr_data_over_ten_minutes
+[2025-03-15T16:30:13.724+0000] {skipmixin.py:233} INFO - Following branch ('Transform_Data.Transform_mstr.aggregate_mstr_data_over_ten_minutes',)
+[2025-03-15T16:30:13.768+0000] {skipmixin.py:281} INFO - Skipping tasks [('Transform_Data.Transform_mstr.aggregate_mstr_data_over_one_hour', -1), ('Transform_Data.Transform_mstr.aggregate_mstr_data_over_one_day', -1)]
+[2025-03-15T16:30:13.882+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-15T16:30:13.883+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.Transform_mstr.select_mstr_aggregation_tasks, run_id=scheduled__2025-03-15T16:20:00+00:00, execution_date=20250315T162000, start_date=20250315T163013, end_date=20250315T163013
+[2025-03-15T16:30:14.019+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-15T16:30:14.068+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

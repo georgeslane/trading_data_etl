@@ -5,6 +5,7 @@ from airflow import DAG
 from airflow.utils.task_group import TaskGroup
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.providers.common.sql.hooks.sql import fetch_all_handler
+from airflow.operators.empty import EmptyOperator
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from tasks.clean_data import initialise_tables, get_table_names, clean_raw_data
@@ -69,139 +70,139 @@ with DAG(
 
         # Loops over all the stocks that are being subscribed to.
         for stock in default_args['table_names']:
+
+            with TaskGroup(group_id=f"Clean_{default_args['table_names'][stock]}") as Clean_Stock:
             
-            raw_query = READ_RAW_DATA.format(f"raw_{default_args['table_names'][stock]}",
+                raw_query = READ_RAW_DATA.format(f"raw_{default_args['table_names'][stock]}",
                                  f"cleaned_{default_args['table_names'][stock]}")
 
-            # Queries the raw stock tables (the tables being inserted into by the kafka consumers.)
-            query_raw_tables = SQLExecuteQueryOperator(
-                task_id=f"query_raw_{default_args['table_names'][stock]}_table",
-                sql=raw_query,
-                autocommit=True,
-                conn_id="mysql_finance_db",
-                database=default_args["database_name"],
-                handler=Utils.cursor_results_to_dict
+                # Queries the raw stock tables (the tables being inserted into by the kafka consumers.)
+                query_raw_tables = SQLExecuteQueryOperator(
+                    task_id=f"query_raw_{default_args['table_names'][stock]}_table",
+                    sql=raw_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"],
+                    handler=Utils.cursor_results_to_dict
+                    )
+            
+                # Runs a task that converts the trading codes to their meaning, and replaces the unix timestamp with a real timestamp.
+                clean_data = clean_raw_data.override(task_id=f"clean_{default_args['table_names'][stock]}_data")(
+                    raw_query_result=query_raw_tables.output,
+                    reference_codes=query_reference_trade_code_table.output
                 )
-            
-            # Runs a task that converts the trading codes to their meaning, and replaces the unix timestamp with a real timestamp.
-            clean_data = clean_raw_data.override(task_id=f"clean_{default_args['table_names'][stock]}_data")(
-                raw_query_result=query_raw_tables.output,
-                reference_codes=query_reference_trade_code_table.output
-            )
 
-            insert_cleaned_query = INSERT_CLEANED_DATA.format(
-                f"cleaned_{default_args['table_names'][stock]}",
-                clean_data)
+                insert_cleaned_query = INSERT_CLEANED_DATA.format(
+                    f"cleaned_{default_args['table_names'][stock]}",
+                    clean_data)
             
-            # Inserts the cleaned data into clean tables.
-            insert_into_clean_tables = SQLExecuteQueryOperator(
-                task_id=f"insert_into_cleaned_{default_args['table_names'][stock]}_table",
-                sql=insert_cleaned_query,
-                autocommit=True,
-                conn_id="mysql_finance_db",
-                database=default_args["database_name"]
-            )
+                # Inserts the cleaned data into clean tables.
+                insert_into_clean_tables = SQLExecuteQueryOperator(
+                    task_id=f"insert_into_cleaned_{default_args['table_names'][stock]}_table",
+                    sql=insert_cleaned_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"]
+                )
 
-            (
-                query_raw_tables
-                >>clean_data
-                >>insert_into_clean_tables
-            )
+                (
+                    query_raw_tables
+                    >>clean_data
+                    >>insert_into_clean_tables
+                )
+
+        (
+            query_reference_trade_code_table
+            >>Clean_Stock
+        )
         
     # Aggregates and unions the cleaned data.
     with TaskGroup(group_id="Transform_Data") as Transform_Data:
 
-        union_query = UNION_DATA
-
         # Ittirates over the stocks being watched.
         for symbol in default_args["table_names"]:
 
-            ten_minute_aggregation_query = AGGREGATE_DATA.format(
-                f"aggregated_{default_args["table_names"][symbol]}",
-                "10",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                "10"
-            )
+            with TaskGroup(group_id=f"Transform_{default_args["table_names"][symbol]}") as Transform_Stock:
 
-            # Aggregates data over the last 10 minutes and adds fields for max, min prices, etc.
-            aggregate_data_over_ten_minutes = SQLExecuteQueryOperator(
-                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_ten_minutes",
-                sql=ten_minute_aggregation_query,
-                autocommit=True,
-                conn_id="mysql_finance_db",
-                database=default_args["database_name"]
-            )
+                ten_minute_aggregation_query = AGGREGATE_DATA.format(
+                    f"aggregated_{default_args["table_names"][symbol]}",
+                    "10",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    "10"
+                )
 
-            one_hour_aggregation_query = AGGREGATE_DATA.format(
-                f"aggregated_{default_args["table_names"][symbol]}",
-                "60",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                "60"
-            )
+                # Aggregates data over the last 10 minutes and adds fields for max, min prices, etc.
+                aggregate_data_over_ten_minutes = SQLExecuteQueryOperator(
+                    task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_ten_minutes",
+                    sql=ten_minute_aggregation_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"]
+                )
 
-            # Aggregates data over the last hour and adds fields for max, min prices, etc.
-            aggregate_data_over_one_hour = SQLExecuteQueryOperator(
-                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_hour",
-                sql=one_hour_aggregation_query,
-                autocommit=True,
-                conn_id="mysql_finance_db",
-                database=default_args["database_name"]
-            )
+                one_hour_aggregation_query = AGGREGATE_DATA.format(
+                    f"aggregated_{default_args["table_names"][symbol]}",
+                    "60",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    "60"
+                )
 
-            one_day_aggregation_query = AGGREGATE_DATA.format(
-                f"aggregated_{default_args["table_names"][symbol]}",
-                "1440",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                f"cleaned_{default_args["table_names"][symbol]}",
-                "1440"
-            )
+                # Aggregates data over the last hour and adds fields for max, min prices, etc.
+                aggregate_data_over_one_hour = SQLExecuteQueryOperator(
+                    task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_hour",
+                    sql=one_hour_aggregation_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"]
+                )
 
-            # Aggregates data over the last day and adds fields for max, min prices, etc.
-            aggregate_data_over_one_day = SQLExecuteQueryOperator(
-                task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_day",
-                sql=one_day_aggregation_query,
-                autocommit=True,
-                conn_id="mysql_finance_db",
-                database=default_args["database_name"]
-            )
+                one_day_aggregation_query = AGGREGATE_DATA.format(
+                    f"aggregated_{default_args["table_names"][symbol]}",
+                    "1440",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    f"cleaned_{default_args["table_names"][symbol]}",
+                    "1440"
+                )
 
-            # Determines which of the above aggregation tasks should be run..
-            branch_aggregation_tasks = select_aggregation_tasks.override(
-                task_id=f"select_{default_args["table_names"][symbol]}_aggregation_tasks"
-                )(table_name=default_args["table_names"][symbol]
-                  )
-            
-            union_query = f"""{union_query} SELECT start_id, aggregation_period, ticker, 
-            start_timestamp, trade_conditions, number_of_trades, total_volume, average_volume, 
-            average_price, maximum_price, minimum_price, opening_price, closing_price 
-            FROM aggregated_{default_args["table_names"][symbol]} UNION"""
+                # Aggregates data over the last day and adds fields for max, min prices, etc.
+                aggregate_data_over_one_day = SQLExecuteQueryOperator(
+                    task_id=f"aggregate_{default_args["table_names"][symbol]}_data_over_one_day",
+                    sql=one_day_aggregation_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"]
+                )
 
-            (
-                branch_aggregation_tasks
-                >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
-            )
+                # Determines which of the above aggregation tasks should be run..
+                branch_aggregation_tasks = select_aggregation_tasks.override(
+                    task_id=f"select_{default_args["table_names"][symbol]}_aggregation_tasks"
+                    )(table_name=default_args["table_names"][symbol]
+                      )
 
-        union_query = union_query[0:-6] + ";"
+                merging_branch = EmptyOperator(task_id=f"merging_{default_args["table_names"][symbol]}_branch", trigger_rule="all_done")
 
-        # Unions all data from the aggregated tables into one access layer table.
-        union_data = SQLExecuteQueryOperator(
-            task_id=f"union_data",
-            sql=union_query,
-            autocommit=True,
-            conn_id="mysql_finance_db",
-            database=default_args["database_name"]
-        )
+                union_query = UNION_DATA.format(default_args["table_names"][symbol])
 
-        (
-            branch_aggregation_tasks
-            >> aggregate_data_over_ten_minutes
-            >> union_data
-        )
+                # Unions all data from the aggregated tables into one access layer table.
+                union_data = SQLExecuteQueryOperator(
+                    task_id=f"union_{default_args["table_names"][symbol]}_data",
+                    sql=union_query,
+                    autocommit=True,
+                    conn_id="mysql_finance_db",
+                    database=default_args["database_name"]
+                )
+
+                (
+                    branch_aggregation_tasks
+                    >> [aggregate_data_over_one_hour, aggregate_data_over_one_day, aggregate_data_over_ten_minutes]
+                    >>merging_branch
+                    >>union_data
+                )
 
     (
         Build_Tables

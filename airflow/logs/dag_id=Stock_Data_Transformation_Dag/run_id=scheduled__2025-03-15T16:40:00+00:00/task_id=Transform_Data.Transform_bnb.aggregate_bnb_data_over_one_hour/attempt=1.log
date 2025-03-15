@@ -1,0 +1,71 @@
+[2025-03-15T16:50:16.062+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-15T16:50:16.217+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour scheduled__2025-03-15T16:40:00+00:00 [queued]>
+[2025-03-15T16:50:16.256+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour scheduled__2025-03-15T16:40:00+00:00 [queued]>
+[2025-03-15T16:50:16.256+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-15T16:50:16.298+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour> on 2025-03-15 16:40:00+00:00
+[2025-03-15T16:50:16.328+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour', 'scheduled__2025-03-15T16:40:00+00:00', '--job-id', '1680', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmprm7hw_i3']
+[2025-03-15T16:50:16.335+0000] {standard_task_runner.py:105} INFO - Job 1680: Subtask Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour
+[2025-03-15T16:50:16.334+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1979) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-15T16:50:16.339+0000] {standard_task_runner.py:72} INFO - Started process 2008 to run task
+[2025-03-15T16:50:16.641+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour scheduled__2025-03-15T16:40:00+00:00 [running]> on host 3b9677d4face
+[2025-03-15T16:50:17.071+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T16:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T16:40:00+00:00'
+[2025-03-15T16:50:17.073+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-15T16:50:17.075+0000] {sql.py:295} INFO - Executing: 
+INSERT IGNORE INTO aggregated_bnb 
+(start_id, aggregation_period, ticker, start_timestamp, trade_conditions, 
+number_of_trades, total_volume, average_volume, average_price, maximum_price, 
+minimum_price, opening_price, closing_price)
+SELECT 
+    MIN(id) AS start_id,
+    60 AS aggregation_period, 
+    ticker,
+    MIN(timestamp) AS start_timestamp,
+    JSON_ARRAYAGG(trade_conditions) AS trade_conditions,
+    COUNT(id) AS number_of_trades,
+    SUM(volume) AS total_volume,
+    AVG(volume) AS average_volume,
+    AVG(price) AS average_price,
+    MAX(price) AS maximum_price,
+    MIN(price) AS minimum_price,
+    (SELECT price FROM cleaned_bnb ORDER BY timestamp ASC LIMIT 1) AS opening_price,
+    (SELECT price FROM cleaned_bnb ORDER BY timestamp DESC LIMIT 1) AS closing_price
+FROM cleaned_bnb
+WHERE timestamp >= NOW() - INTERVAL 60 MINUTE
+GROUP BY ticker;
+[2025-03-15T16:50:17.194+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-15T16:50:17.260+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-15T16:50:17.268+0000] {sql.py:511} INFO - Running statement: 
+INSERT IGNORE INTO aggregated_bnb 
+(start_id, aggregation_period, ticker, start_timestamp, trade_conditions, 
+number_of_trades, total_volume, average_volume, average_price, maximum_price, 
+minimum_price, opening_price, closing_price)
+SELECT 
+    MIN(id) AS start_id,
+    60 AS aggregation_period, 
+    ticker,
+    MIN(timestamp) AS start_timestamp,
+    JSON_ARRAYAGG(trade_conditions) AS trade_conditions,
+    COUNT(id) AS number_of_trades,
+    SUM(volume) AS total_volume,
+    AVG(volume) AS average_volume,
+    AVG(price) AS average_price,
+    MAX(price) AS maximum_price,
+    MIN(price) AS minimum_price,
+    (SELECT price FROM cleaned_bnb ORDER BY timestamp ASC LIMIT 1) AS opening_price,
+    (SELECT price FROM cleaned_bnb ORDER BY timestamp DESC LIMIT 1) AS closing_price
+FROM cleaned_bnb
+WHERE timestamp >= NOW() - INTERVAL 60 MINUTE
+GROUP BY ticker;, parameters: None
+[2025-03-15T16:50:17.269+0000] {sql.py:520} INFO - Rows affected: 0
+[2025-03-15T16:50:17.271+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:470 DeprecationWarning: Import of fetch_all_handler from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T16:50:17.277+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T16:50:17.285+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T16:50:17.287+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-15T16:50:17.351+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-15T16:50:17.351+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.Transform_bnb.aggregate_bnb_data_over_one_hour, run_id=scheduled__2025-03-15T16:40:00+00:00, execution_date=20250315T164000, start_date=20250315T165016, end_date=20250315T165017
+[2025-03-15T16:50:17.528+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-15T16:50:17.582+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

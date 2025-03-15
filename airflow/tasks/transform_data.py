@@ -12,11 +12,11 @@ def select_aggregation_tasks(table_name: str, **kwargs):
     dag_id = kwargs["dag"].dag_id
     num_runs = len(DagRun.find(dag_id=dag_id))
     if num_runs % 144 == 0:
-        return [f"Transform_Data.aggregate_{table_name}_data_over_one_day", 
-                f"Transform_Data.aggregate_{table_name}_data_over_one_hour",
-                f"Transform_Data.aggregate_{table_name}_data_over_ten_minutes"]
+        return [f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_day", 
+                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_hour",
+                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"]
     elif num_runs % 6 == 0:
-        return [f"Transform_Data.aggregate_{table_name}_data_over_one_hour",
-                f"Transform_Data.aggregate_{table_name}_data_over_ten_minutes"]
+        return [f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_hour",
+                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"]
     else: 
-        return f"Transform_Data.aggregate_{table_name}_data_over_ten_minutes"
+        return f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"
