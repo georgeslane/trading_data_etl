@@ -1,0 +1,567 @@
+[2025-03-16T20:15:04.042+0000] {processor.py:186} INFO - Started process (PID=191) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:04.043+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:15:04.044+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:04.044+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:04.395+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:04.667+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:04.667+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:15:04.695+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:04.695+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:15:04.734+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.698 seconds
+[2025-03-16T20:15:35.015+0000] {processor.py:186} INFO - Started process (PID=259) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:35.015+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:15:35.018+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:35.017+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:35.241+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:15:35.335+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:35.334+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:15:35.362+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:15:35.362+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:15:35.383+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.373 seconds
+[2025-03-16T20:16:05.690+0000] {processor.py:186} INFO - Started process (PID=324) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:05.691+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:16:05.693+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:05.693+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:05.745+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:05.845+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:05.845+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:16:05.873+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:05.873+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:16:05.900+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.216 seconds
+[2025-03-16T20:16:36.063+0000] {processor.py:186} INFO - Started process (PID=335) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:36.063+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:16:36.065+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:36.065+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:36.102+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:16:36.173+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:36.173+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:16:36.191+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:16:36.191+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:16:36.207+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:17:06.349+0000] {processor.py:186} INFO - Started process (PID=346) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:06.350+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:17:06.352+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:06.351+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:06.389+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:06.456+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:06.456+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:17:06.474+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:06.474+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:17:06.492+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:17:36.636+0000] {processor.py:186} INFO - Started process (PID=357) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:36.637+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:17:36.638+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:36.638+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:36.676+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:17:36.743+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:36.743+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:17:36.762+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:17:36.762+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:17:36.778+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:18:06.924+0000] {processor.py:186} INFO - Started process (PID=368) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:06.924+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:18:06.927+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:06.926+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:06.968+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:07.042+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:07.041+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:18:07.061+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:07.061+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:18:07.078+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.159 seconds
+[2025-03-16T20:18:37.217+0000] {processor.py:186} INFO - Started process (PID=379) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:37.218+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:18:37.220+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:37.219+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:37.263+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:18:37.331+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:37.331+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:18:37.351+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:18:37.351+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:18:37.368+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.156 seconds
+[2025-03-16T20:19:07.516+0000] {processor.py:186} INFO - Started process (PID=390) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:07.517+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:19:07.518+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:07.518+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:07.556+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:07.627+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:07.626+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:19:07.645+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:07.645+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:19:07.665+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.153 seconds
+[2025-03-16T20:19:37.823+0000] {processor.py:186} INFO - Started process (PID=401) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:37.823+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:19:37.825+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:37.825+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:37.862+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:19:37.929+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:37.929+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:19:37.948+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:19:37.948+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:10:00+00:00, run_after=2025-03-16 20:20:00+00:00
+[2025-03-16T20:19:37.964+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:20:08.106+0000] {processor.py:186} INFO - Started process (PID=440) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:08.107+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:20:08.109+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:08.108+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:08.148+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:08.218+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:08.218+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:20:08.238+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:08.238+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:20:08.254+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.153 seconds
+[2025-03-16T20:20:38.400+0000] {processor.py:186} INFO - Started process (PID=463) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:38.401+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:20:38.403+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:38.402+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:38.461+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:20:38.543+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:38.543+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:20:38.567+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:20:38.567+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:20:38.584+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.189 seconds
+[2025-03-16T20:21:08.739+0000] {processor.py:186} INFO - Started process (PID=491) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:08.739+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:21:08.741+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:08.741+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:08.779+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:08.852+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:08.852+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:21:08.870+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:08.870+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:21:08.888+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:21:39.028+0000] {processor.py:186} INFO - Started process (PID=502) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:39.029+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:21:39.031+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:39.030+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:39.069+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:21:39.137+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:39.137+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:21:39.160+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:21:39.160+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:21:39.180+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.156 seconds
+[2025-03-16T20:22:09.322+0000] {processor.py:186} INFO - Started process (PID=513) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:09.322+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:22:09.324+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:09.324+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:09.363+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:09.434+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:09.433+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:22:09.454+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:09.454+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:22:09.472+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.155 seconds
+[2025-03-16T20:22:39.619+0000] {processor.py:186} INFO - Started process (PID=524) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:39.620+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:22:39.621+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:39.621+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:39.659+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:22:39.727+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:39.727+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:22:39.748+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:22:39.747+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:22:39.765+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.151 seconds
+[2025-03-16T20:23:09.915+0000] {processor.py:186} INFO - Started process (PID=535) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:09.916+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:23:09.918+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:09.918+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:09.956+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:10.024+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:10.024+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:23:10.043+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:10.043+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:23:10.061+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.151 seconds
+[2025-03-16T20:23:40.197+0000] {processor.py:186} INFO - Started process (PID=546) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:40.198+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:23:40.200+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:40.199+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:40.240+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:23:40.307+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:40.307+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:23:40.326+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:23:40.326+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:23:40.342+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.150 seconds
+[2025-03-16T20:24:10.488+0000] {processor.py:186} INFO - Started process (PID=557) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:10.488+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:24:10.490+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:10.490+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:10.528+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:10.595+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:10.595+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:24:10.615+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:10.614+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:24:10.631+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:24:40.777+0000] {processor.py:186} INFO - Started process (PID=568) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:40.777+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:24:40.779+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:40.779+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:40.818+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:24:40.885+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:40.885+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:24:40.904+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:24:40.903+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:24:40.919+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:25:11.068+0000] {processor.py:186} INFO - Started process (PID=579) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:11.069+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:25:11.070+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:11.070+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:11.108+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:11.176+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:11.176+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:25:11.195+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:11.194+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:25:11.212+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:25:41.356+0000] {processor.py:186} INFO - Started process (PID=590) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:41.356+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:25:41.359+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:41.358+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:41.397+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:25:41.473+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:41.472+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:25:41.496+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:25:41.496+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:25:41.513+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.163 seconds
+[2025-03-16T20:26:11.659+0000] {processor.py:186} INFO - Started process (PID=601) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:11.660+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:26:11.662+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:11.662+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:11.701+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:11.771+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:11.771+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:26:11.791+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:11.791+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:26:11.808+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:26:41.953+0000] {processor.py:186} INFO - Started process (PID=612) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:41.954+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:26:41.956+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:41.956+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:41.994+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:26:42.072+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:42.072+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:26:42.090+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:26:42.090+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:26:42.106+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.158 seconds
+[2025-03-16T20:27:12.247+0000] {processor.py:186} INFO - Started process (PID=623) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:12.248+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:27:12.250+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:12.249+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:12.287+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:12.353+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:12.353+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:27:12.371+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:12.371+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:27:12.388+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.145 seconds
+[2025-03-16T20:27:42.529+0000] {processor.py:186} INFO - Started process (PID=634) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:42.529+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:27:42.531+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:42.531+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:42.573+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:27:42.640+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:42.640+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:27:42.661+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:27:42.660+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:27:42.677+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:28:12.831+0000] {processor.py:186} INFO - Started process (PID=645) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:12.832+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:28:12.834+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:12.833+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:12.871+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:12.938+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:12.938+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:28:12.956+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:12.956+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:28:12.972+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:28:43.109+0000] {processor.py:186} INFO - Started process (PID=656) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:43.109+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:28:43.111+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:43.111+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:43.148+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:28:43.215+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:43.215+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:28:43.234+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:28:43.234+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:28:43.251+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:29:13.389+0000] {processor.py:186} INFO - Started process (PID=667) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:13.390+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:29:13.392+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:13.391+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:13.429+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:13.496+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:13.495+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:29:13.513+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:13.513+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:29:13.530+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:29:43.673+0000] {processor.py:186} INFO - Started process (PID=678) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:43.674+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:29:43.676+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:43.676+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:43.714+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:29:43.781+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:43.780+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:29:43.800+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:29:43.799+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:20:00+00:00, run_after=2025-03-16 20:30:00+00:00
+[2025-03-16T20:29:43.816+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:30:13.960+0000] {processor.py:186} INFO - Started process (PID=719) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:13.961+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:30:13.962+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:13.962+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:14.001+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:14.068+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:14.068+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:30:14.086+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:14.086+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:30:14.103+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:30:44.240+0000] {processor.py:186} INFO - Started process (PID=757) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:44.241+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:30:44.243+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:44.242+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:44.281+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:30:44.348+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:44.348+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:30:44.369+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:30:44.369+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:30:44.388+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.152 seconds
+[2025-03-16T20:31:14.534+0000] {processor.py:186} INFO - Started process (PID=768) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:14.534+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:31:14.536+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:14.536+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:14.574+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:14.646+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:14.646+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:31:14.665+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:14.665+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:31:14.683+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:31:44.831+0000] {processor.py:186} INFO - Started process (PID=779) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:44.832+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:31:44.834+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:44.833+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:44.870+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:31:44.937+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:44.937+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:31:44.957+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:31:44.957+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:31:44.973+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:32:15.108+0000] {processor.py:186} INFO - Started process (PID=790) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:15.109+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:32:15.110+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:15.110+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:15.155+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:15.225+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:15.225+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:32:15.243+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:15.243+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:32:15.260+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.157 seconds
+[2025-03-16T20:32:45.402+0000] {processor.py:186} INFO - Started process (PID=801) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:45.402+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:32:45.404+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:45.404+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:45.443+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:32:45.512+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:45.511+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:32:45.530+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:32:45.530+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:32:45.545+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:33:15.690+0000] {processor.py:186} INFO - Started process (PID=812) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:15.691+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:33:15.692+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:15.692+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:15.730+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:15.799+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:15.799+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:33:15.818+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:15.817+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:33:15.835+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.150 seconds
+[2025-03-16T20:33:45.981+0000] {processor.py:186} INFO - Started process (PID=823) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:45.982+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:33:45.984+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:45.983+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:46.020+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:33:46.087+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:46.087+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:33:46.106+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:33:46.106+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:33:46.122+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.145 seconds
+[2025-03-16T20:34:16.261+0000] {processor.py:186} INFO - Started process (PID=834) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:16.262+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:34:16.263+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:16.263+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:16.300+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:16.367+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:16.367+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:34:16.386+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:16.385+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:34:16.402+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:34:46.543+0000] {processor.py:186} INFO - Started process (PID=845) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:46.544+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:34:46.546+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:46.545+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:46.583+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:34:46.653+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:46.652+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:34:46.671+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:34:46.671+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:34:46.687+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:35:16.842+0000] {processor.py:186} INFO - Started process (PID=856) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:16.843+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:35:16.845+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:16.844+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:16.882+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:16.952+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:16.951+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:35:16.970+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:16.970+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:35:16.987+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.150 seconds
+[2025-03-16T20:35:47.130+0000] {processor.py:186} INFO - Started process (PID=867) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:47.131+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:35:47.133+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:47.133+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:47.170+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:35:47.236+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:47.236+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:35:47.256+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:35:47.256+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:35:47.272+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:36:17.412+0000] {processor.py:186} INFO - Started process (PID=878) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:17.412+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:36:17.414+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:17.414+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:17.451+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:17.520+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:17.519+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:36:17.538+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:17.538+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:36:17.554+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:36:47.699+0000] {processor.py:186} INFO - Started process (PID=889) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:47.700+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:36:47.701+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:47.701+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:47.739+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:36:47.806+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:47.805+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:36:47.824+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:36:47.823+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:36:47.840+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:37:17.981+0000] {processor.py:186} INFO - Started process (PID=900) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:17.982+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:37:17.983+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:17.983+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:18.021+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:18.089+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:18.088+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:37:18.108+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:18.108+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:37:18.125+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:37:48.267+0000] {processor.py:186} INFO - Started process (PID=911) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:48.268+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:37:48.270+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:48.269+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:48.307+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:37:48.374+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:48.374+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:37:48.393+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:37:48.393+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:37:48.410+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:38:18.547+0000] {processor.py:186} INFO - Started process (PID=922) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:18.548+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:38:18.549+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:18.549+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:18.585+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:18.654+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:18.654+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:38:18.672+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:18.672+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:38:18.688+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:38:48.838+0000] {processor.py:186} INFO - Started process (PID=933) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:48.839+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:38:48.841+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:48.840+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:48.878+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:38:48.944+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:48.944+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:38:48.962+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:38:48.962+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:38:48.978+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.145 seconds
+[2025-03-16T20:39:19.119+0000] {processor.py:186} INFO - Started process (PID=944) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:19.119+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:39:19.121+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:19.121+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:19.159+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:19.227+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:19.226+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:39:19.245+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:19.245+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:39:19.263+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:39:49.403+0000] {processor.py:186} INFO - Started process (PID=955) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:49.404+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:39:49.406+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:49.406+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:49.443+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:39:49.509+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:49.509+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:39:49.529+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:39:49.529+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:30:00+00:00, run_after=2025-03-16 20:40:00+00:00
+[2025-03-16T20:39:49.545+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:40:19.688+0000] {processor.py:186} INFO - Started process (PID=996) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:19.688+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:40:19.690+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:19.690+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:19.727+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:19.795+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:19.795+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:40:19.813+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:19.813+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:40:19.829+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:40:49.973+0000] {processor.py:186} INFO - Started process (PID=1034) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:49.973+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:40:49.975+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:49.975+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:50.013+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:40:50.079+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:50.079+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:40:50.097+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:40:50.097+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:40:50.115+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:41:20.255+0000] {processor.py:186} INFO - Started process (PID=1045) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:20.256+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:41:20.258+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:20.258+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:20.303+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:20.371+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:20.370+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:41:20.389+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:20.389+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:41:20.407+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.156 seconds
+[2025-03-16T20:41:50.544+0000] {processor.py:186} INFO - Started process (PID=1056) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:50.545+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:41:50.547+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:50.546+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:50.584+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:41:50.651+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:50.651+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:41:50.670+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:41:50.670+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:41:50.687+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:42:20.834+0000] {processor.py:186} INFO - Started process (PID=1067) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:20.834+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:42:20.836+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:20.836+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:20.872+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:20.941+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:20.941+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:42:20.959+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:20.959+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:42:20.976+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:42:51.116+0000] {processor.py:186} INFO - Started process (PID=1078) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:51.117+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:42:51.119+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:51.119+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:51.162+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:42:51.230+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:51.230+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:42:51.249+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:42:51.249+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:42:51.266+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.156 seconds
+[2025-03-16T20:43:21.408+0000] {processor.py:186} INFO - Started process (PID=1089) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:21.409+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:43:21.410+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:21.410+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:21.452+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:21.525+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:21.524+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:43:21.543+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:21.543+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:43:21.560+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.158 seconds
+[2025-03-16T20:43:51.706+0000] {processor.py:186} INFO - Started process (PID=1100) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:51.707+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:43:51.709+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:51.708+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:51.746+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:43:51.812+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:51.812+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:43:51.833+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:43:51.833+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:43:51.851+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.150 seconds
+[2025-03-16T20:44:21.992+0000] {processor.py:186} INFO - Started process (PID=1111) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:21.992+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:44:21.994+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:21.993+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:22.030+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:22.098+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:22.098+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:44:22.117+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:22.116+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:44:22.133+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:44:52.272+0000] {processor.py:186} INFO - Started process (PID=1122) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:52.272+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:44:52.274+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:52.274+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:52.311+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:44:52.377+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:52.377+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:44:52.395+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:44:52.395+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:44:52.413+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:45:22.567+0000] {processor.py:186} INFO - Started process (PID=1133) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:22.567+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:45:22.569+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:22.569+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:22.606+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:22.674+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:22.673+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:45:22.692+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:22.692+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:45:22.708+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:45:52.747+0000] {processor.py:186} INFO - Started process (PID=1144) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:52.747+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:45:52.749+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:52.749+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:52.787+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:45:52.855+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:52.855+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:45:52.875+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:45:52.875+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:45:52.892+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:46:22.992+0000] {processor.py:186} INFO - Started process (PID=1155) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:22.993+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:46:22.995+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:22.994+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:23.033+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:23.100+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:23.100+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:46:23.120+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:23.120+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:46:23.137+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:46:53.280+0000] {processor.py:186} INFO - Started process (PID=1166) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:53.280+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:46:53.282+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:53.282+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:53.319+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:46:53.386+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:53.386+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:46:53.405+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:46:53.405+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:46:53.421+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:47:23.575+0000] {processor.py:186} INFO - Started process (PID=1177) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:23.575+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:47:23.577+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:23.577+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:23.614+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:23.682+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:23.682+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:47:23.701+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:23.700+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:47:23.717+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:47:53.863+0000] {processor.py:186} INFO - Started process (PID=1188) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:53.864+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:47:53.866+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:53.865+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:53.902+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:47:53.969+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:53.968+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:47:53.988+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:47:53.988+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:47:54.003+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.145 seconds
+[2025-03-16T20:48:24.148+0000] {processor.py:186} INFO - Started process (PID=1199) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:24.149+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:48:24.150+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:24.150+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:24.187+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:24.257+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:24.257+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:48:24.276+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:24.276+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:48:24.292+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:48:54.437+0000] {processor.py:186} INFO - Started process (PID=1210) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:54.437+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:48:54.439+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:54.439+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:54.477+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:48:54.544+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:54.544+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:48:54.562+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:48:54.562+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:48:54.578+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:49:24.725+0000] {processor.py:186} INFO - Started process (PID=1221) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:24.726+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:49:24.728+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:24.727+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:24.765+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:24.832+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:24.832+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:49:24.850+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:24.850+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:49:24.868+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:49:55.012+0000] {processor.py:186} INFO - Started process (PID=1232) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:55.013+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:49:55.014+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:55.014+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:55.057+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:49:55.123+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:55.122+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:49:55.142+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:49:55.142+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:40:00+00:00, run_after=2025-03-16 20:50:00+00:00
+[2025-03-16T20:49:55.158+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.151 seconds
+[2025-03-16T20:50:25.307+0000] {processor.py:186} INFO - Started process (PID=1273) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:25.308+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:50:25.310+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:25.309+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:25.347+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:25.415+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:25.415+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:50:25.433+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:25.433+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:50:25.450+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.147 seconds
+[2025-03-16T20:50:55.599+0000] {processor.py:186} INFO - Started process (PID=1311) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:55.600+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:50:55.601+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:55.601+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:55.639+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:50:55.707+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:55.707+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:50:55.726+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:50:55.726+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:50:55.744+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:51:25.890+0000] {processor.py:186} INFO - Started process (PID=1322) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:25.891+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:51:25.892+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:25.892+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:25.929+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:26.001+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:26.001+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:51:26.019+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:26.019+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:51:26.036+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.151 seconds
+[2025-03-16T20:51:56.183+0000] {processor.py:186} INFO - Started process (PID=1333) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:56.184+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:51:56.185+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:56.185+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:56.222+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:51:56.288+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:56.288+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:51:56.308+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:51:56.308+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:51:56.324+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:52:26.469+0000] {processor.py:186} INFO - Started process (PID=1344) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:26.470+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:52:26.471+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:26.471+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:26.508+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:26.577+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:26.576+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:52:26.595+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:26.595+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:52:26.612+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:52:56.763+0000] {processor.py:186} INFO - Started process (PID=1355) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:56.763+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:52:56.765+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:56.765+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:56.804+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:52:56.872+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:56.871+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:52:56.890+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:52:56.890+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:52:56.907+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.148 seconds
+[2025-03-16T20:53:27.051+0000] {processor.py:186} INFO - Started process (PID=1366) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:27.052+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:53:27.054+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:27.053+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:27.091+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:27.159+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:27.159+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:53:27.178+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:27.177+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:53:27.195+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.149 seconds
+[2025-03-16T20:53:57.332+0000] {processor.py:186} INFO - Started process (PID=1377) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:57.333+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:53:57.334+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:57.334+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:57.372+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:53:57.438+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:57.438+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:53:57.457+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:53:57.457+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:53:57.474+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.146 seconds
+[2025-03-16T20:54:27.622+0000] {processor.py:186} INFO - Started process (PID=1388) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:27.623+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:54:27.625+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:27.625+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:27.663+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:27.736+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:27.736+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:54:27.755+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:27.755+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:54:27.771+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:54:57.917+0000] {processor.py:186} INFO - Started process (PID=1399) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:57.918+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:54:57.920+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:57.919+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:57.958+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:54:58.025+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:58.024+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:54:58.051+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:54:58.051+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:54:58.067+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.154 seconds
+[2025-03-16T20:55:28.220+0000] {processor.py:186} INFO - Started process (PID=1410) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:55:28.221+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-16T20:55:28.223+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:55:28.222+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:55:28.260+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-16T20:55:28.328+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:55:28.328+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-16T20:55:28.348+0000] {logging_mixin.py:190} INFO - [2025-03-16T20:55:28.348+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-16 20:50:00+00:00, run_after=2025-03-16 21:00:00+00:00
+[2025-03-16T20:55:28.367+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.152 seconds

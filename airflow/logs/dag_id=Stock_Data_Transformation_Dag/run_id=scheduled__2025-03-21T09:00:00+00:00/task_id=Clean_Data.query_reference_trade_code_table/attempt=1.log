@@ -1,0 +1,56 @@
+[2025-03-21T09:10:10.195+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-21T09:10:10.446+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [queued]>
+[2025-03-21T09:10:10.521+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [queued]>
+[2025-03-21T09:10:10.521+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-21T09:10:10.640+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Clean_Data.query_reference_trade_code_table> on 2025-03-21 09:00:00+00:00
+[2025-03-21T09:10:10.705+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=515) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-21T09:10:10.716+0000] {standard_task_runner.py:72} INFO - Started process 526 to run task
+[2025-03-21T09:10:10.712+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Clean_Data.query_reference_trade_code_table', 'scheduled__2025-03-21T09:00:00+00:00', '--job-id', '204', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpouy3kxas']
+[2025-03-21T09:10:10.733+0000] {standard_task_runner.py:105} INFO - Job 204: Subtask Clean_Data.query_reference_trade_code_table
+[2025-03-21T09:10:11.585+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [running]> on host d0ac74b7cdc1
+[2025-03-21T09:10:12.537+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Clean_Data.query_reference_trade_code_table' AIRFLOW_CTX_EXECUTION_DATE='2025-03-21T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-21T09:00:00+00:00'
+[2025-03-21T09:10:12.541+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-21T09:10:12.546+0000] {sql.py:295} INFO - Executing: SELECT * FROM trade_conditions_reference_data;
+[2025-03-21T09:10:12.731+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-21T09:10:12.920+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-21T09:10:12.937+0000] {sql.py:511} INFO - Running statement: SELECT * FROM trade_conditions_reference_data;, parameters: None
+[2025-03-21T09:10:12.938+0000] {sql.py:520} INFO - Rows affected: 41
+[2025-03-21T09:10:12.943+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:10:12.951+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:10:12.956+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:10:13.380+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-21T09:10:13.380+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Clean_Data.query_reference_trade_code_table, run_id=scheduled__2025-03-21T09:00:00+00:00, execution_date=20250321T090000, start_date=20250321T091010, end_date=20250321T091013
+[2025-03-21T09:10:13.909+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-21T09:10:14.134+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-21T09:20:00.682+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-21T09:20:01.479+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [queued]>
+[2025-03-21T09:20:01.676+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [queued]>
+[2025-03-21T09:20:01.687+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-21T09:20:06.550+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Clean_Data.query_reference_trade_code_table> on 2025-03-21 09:00:00+00:00
+[2025-03-21T09:20:06.655+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Clean_Data.query_reference_trade_code_table', 'scheduled__2025-03-21T09:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpnutfggia']
+[2025-03-21T09:20:06.676+0000] {standard_task_runner.py:105} INFO - Job 6: Subtask Clean_Data.query_reference_trade_code_table
+[2025-03-21T09:20:06.783+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=204) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-21T09:20:06.819+0000] {standard_task_runner.py:72} INFO - Started process 215 to run task
+[2025-03-21T09:20:08.326+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_reference_trade_code_table scheduled__2025-03-21T09:00:00+00:00 [running]> on host b2b852a522ed
+[2025-03-21T09:20:11.505+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Clean_Data.query_reference_trade_code_table' AIRFLOW_CTX_EXECUTION_DATE='2025-03-21T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-21T09:00:00+00:00'
+[2025-03-21T09:20:11.528+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-21T09:20:11.552+0000] {sql.py:295} INFO - Executing: SELECT * FROM trade_conditions_reference_data;
+[2025-03-21T09:20:11.821+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-21T09:20:12.209+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-21T09:20:12.270+0000] {sql.py:511} INFO - Running statement: SELECT * FROM trade_conditions_reference_data;, parameters: None
+[2025-03-21T09:20:12.275+0000] {sql.py:520} INFO - Rows affected: 41
+[2025-03-21T09:20:12.300+0000] {job.py:229} INFO - Heartbeat recovered after 13.08 seconds
+[2025-03-21T09:20:12.337+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:20:12.358+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:20:12.371+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-21T09:20:12.946+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-21T09:20:12.949+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Clean_Data.query_reference_trade_code_table, run_id=scheduled__2025-03-21T09:00:00+00:00, execution_date=20250321T090000, start_date=20250321T092001, end_date=20250321T092012
+[2025-03-21T09:20:13.737+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-21T09:20:14.253+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-21T09:20:14.268+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
