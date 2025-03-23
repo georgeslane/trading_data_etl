@@ -1,49 +1,44 @@
-from real_time_data_classes.apache_kafka import Producer, Consumer
-from real_time_data_classes.data_connections import WebSocketConnection, ApiConnection
-from config.settings import FINHUB_API_KEY, KAFKA_DATABASE_PASSWORD, KAFKA_DATABASE_USER, STOCK_LIST, DATABASE_NAME
+from real_time_data_classes.apache_kafka import Producer, Admin
+from real_time_data_classes.data_connections import CoinbaseWebsocket, FinnhubWebsocket
+from config.settings import (FINHUB_API_KEY, 
+                             KAFKA_DATABASE_PASSWORD, 
+                             KAFKA_DATABASE_USER, 
+                             STOCK_LIST, 
+                             DATABASE_NAME,
+                             KAFKA_BROKER,
+                             BACKUP_KAFKA_BROKER)
 import threading
 import os
 
 def main():
     # Runs the docker command to start the kafka, airflow and mysql containers.
     os.system("docker-compose up -d")
-    KAFKA_BROKER = 'localhost:29092'
-    TICKER_SYMBOLS = STOCK_LIST
 
-    # Creates a kafka producer
+    # Initialises a kafka admin object.
+    AdminInstance = Admin(broker=KAFKA_BROKER, 
+                      client_id='topics_manager')
+
+    # Creates a kafka producer.
     ProducerInstance = Producer(
-        broker=KAFKA_BROKER,
-        ticker_symbols=TICKER_SYMBOLS
+        broker=KAFKA_BROKER
     )
 
-    # Creates a kafka consumer for each stock.
-    ConsumerInstance = Consumer(
-        ticker_symbols=TICKER_SYMBOLS,
-        broker=KAFKA_BROKER,
-        database_name=DATABASE_NAME,
-        password=KAFKA_DATABASE_PASSWORD,
-        user=KAFKA_DATABASE_USER
-    )
+    # Creates coinbase and finnhub websocket connections.
+    CoinbaseInstance = CoinbaseWebsocket(endpoint="wss://ws-feed.exchange.coinbase.com",
+                             ticker_symbols = STOCK_LIST,
+                             producer=ProducerInstance)
 
-    # Creates a websocker connection that listens for specific data.
-    FinnHubTradesConnection = WebSocketConnection(
-        api_key=FINHUB_API_KEY,
-        ticker_symbols=TICKER_SYMBOLS,
-        producer=ProducerInstance
-    )
+    FinnhubInstance = FinnhubWebsocket(api_key=FINHUB_API_KEY,
+                              endpoint="wss://ws.finnhub.io",
+                              ticker_symbols=STOCK_LIST,
+                              producer=ProducerInstance)
+    
+    AdminInstance.setup_topics(tickers_dictionary=STOCK_LIST)
 
-    FinnHubNewsConnection = ApiConnection(
-        api_key=FINHUB_API_KEY,
-        ticker_list=TICKER_SYMBOLS,
-        producer=ProducerInstance,
-        url="https://finnhub.io/api/v1/company-news?"
-    )
-
-    # Starts two threads so the consumers and producer can run in parrallel.
+    # Creates and starts parrallel threads for the websockets being subscribed to.
     threads = {
-        "websocket_thread": threading.Thread(target=FinnHubTradesConnection.start_websocket),
-        "api_thread": threading.Thread(target=FinnHubNewsConnection.get_data),
-        "consumer_thread": threading.Thread(target=ConsumerInstance.run_consumers)
+        "finnhub_thread": threading.Thread(target=FinnhubInstance.start_websocket),
+        "coinbase_thread": threading.Thread(target=CoinbaseInstance.start_websocket)
     }
 
     for thread in threads:

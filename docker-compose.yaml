@@ -10,7 +10,7 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    _PIP_ADDITIONAL_REQUIREMENTS: "-r /opt/requirements.txt"
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
   volumes:
     - ./airflow/dags:/opt/airflow/dags
@@ -21,6 +21,8 @@ x-airflow-common:
     - ./config:/opt/config
     - ./database:/opt/database    
     - ./utils:/opt/utils
+    - ./requirements.txt:/opt/requirements.txt
+    - ./.env:/opt/.env
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -57,6 +59,7 @@ services:
         PLAINTEXT_HOST:PLAINTEXT 
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
 
 # Sets up a database for kafka and airflow useage
   mysql:

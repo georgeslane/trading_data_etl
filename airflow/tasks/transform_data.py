@@ -1,22 +1,69 @@
-from airflow.decorators import task, branch_task
-from airflow.models import DagRun
+from airflow.decorators import task
+import pandas as pd
+import requests
+from datetime import datetime
 
-@task.branch
-def select_aggregation_tasks(table_name: str, **kwargs):
-    """Chooses which of the aggregation tasks to run: The last 10, 60 minutes of 24 hour option.
+@task
+def aggregate_data(cleaned_trade_list: list):
+    """Converts the list of trades to a dictionary. 
+    Aggregates the data over selected periods. 
+    Adds new aggregated attributes.
     
     Args:
-        table_name (string): The table that should be used to get task IDs.
-        kwargs: Airflow's context dictionary.
+        cleaned_trade_list (list): A list of cleaned trades from all sources.
     """
-    dag_id = kwargs["dag"].dag_id
-    num_runs = len(DagRun.find(dag_id=dag_id))
-    if num_runs % 144 == 0:
-        return [f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_day", 
-                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_hour",
-                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"]
-    elif num_runs % 6 == 0:
-        return [f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_one_hour",
-                f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"]
-    else: 
-        return f"Transform_Data.Transform_{table_name}.aggregate_{table_name}_data_over_ten_minutes"
+
+    trades_dataframe = pd.DataFrame(cleaned_trade_list)
+    aggregated_trades_dataframe = trades_dataframe.groupby(["aggregation_period", "ticker"]).agg(
+        max_price=("price", "max"),
+        min_price=("price", "min"),
+        opening_price=("price", lambda x: x.iloc[0]),
+        closing_price=("price", lambda x: x.iloc[-1]),
+        average_price=("price", "mean"),
+        total_volume=("volume", "sum"),
+        average_volume=("volume", "mean"),
+        num_trades=("price", "count"),
+        opening_timestamp=("timestamp", lambda x: x.iloc[0]),
+        closing_timestamp=("timestamp", lambda x: x.iloc[-1])
+    ).reset_index()
+
+    return aggregated_trades_dataframe
+
+@task
+def enrich_data(aggregated_dataframe: object, api_key:str):
+    """Adds relevant news data to the aggregated dataframe.
+    
+    Args:
+        aggregated_dataframe (object): A dataframe containing aggregated trades data.
+        api_key (string): The api key used to authenticate the api connection.
+    """
+    enriched_dataframe = aggregated_dataframe
+    endpoint = f"https://finnhub.io/api/v1/news?category=general&token={api_key}"
+    response = requests.get(url=endpoint)
+    if response.status_code == 200:
+        enriched_dataframe["news"] = [[] for _ in range(len(enriched_dataframe))]
+        data = response.json()
+        
+        for news in data:
+            mask = (enriched_dataframe["ticker"].apply(lambda x: x.split("-")[0]) == news["related"]) & (enriched_dataframe["opening_timestamp"] <= datetime.fromtimestamp(int(news["datetime"])/1000))
+    
+        enriched_dataframe.loc[mask, "news"] = enriched_dataframe.loc[mask, "news"].apply(lambda x: x + [news])
+
+    return enriched_dataframe
+
+@task 
+def get_records(enriched_dataframe: object):
+    """Gets a list of records to insert into a mysql table.
+    
+    Args: 
+        enriched_dataframe (object): A dataframe containing aggregated trades.
+    """
+    tuples_list = [tuple(x) for x in enriched_dataframe.itertuples(index=False, name=None)]
+
+    insert_string = ""
+
+    for tuple in tuples_list: 
+        insert_string += str(tuple)
+    
+    return insert_string
+            
