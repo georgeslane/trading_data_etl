@@ -5989,3 +5989,38 @@ ModuleNotFoundError: No module named 'matplotlib'
 [2025-03-24T10:43:37.594+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:43:37.594+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-03-24T10:43:37.611+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:43:37.611+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
 [2025-03-24T10:43:37.628+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.499 seconds
+[2025-03-24T10:44:07.734+0000] {processor.py:186} INFO - Started process (PID=996) to work on /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:07.734+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/trading_aggregation_dag.py for tasks to queue
+[2025-03-24T10:44:07.736+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:07.736+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:08.123+0000] {processor.py:925} INFO - DAG(s) 'Stock_Trades_Aggregation_Dag' retrieved from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:08.176+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:08.175+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-24T10:44:08.193+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:08.192+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
+[2025-03-24T10:44:08.208+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.480 seconds
+[2025-03-24T10:44:38.375+0000] {processor.py:186} INFO - Started process (PID=1008) to work on /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:38.376+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/trading_aggregation_dag.py for tasks to queue
+[2025-03-24T10:44:38.377+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:38.377+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:38.752+0000] {processor.py:925} INFO - DAG(s) 'Stock_Trades_Aggregation_Dag' retrieved from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:44:38.804+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:38.804+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-24T10:44:38.822+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:44:38.821+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
+[2025-03-24T10:44:38.854+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.484 seconds
+[2025-03-24T10:45:09.022+0000] {processor.py:186} INFO - Started process (PID=1020) to work on /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:09.023+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/trading_aggregation_dag.py for tasks to queue
+[2025-03-24T10:45:09.025+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:09.025+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:09.388+0000] {processor.py:925} INFO - DAG(s) 'Stock_Trades_Aggregation_Dag' retrieved from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:09.438+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:09.437+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-24T10:45:09.455+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:09.455+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
+[2025-03-24T10:45:09.470+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.454 seconds
+[2025-03-24T10:45:39.639+0000] {processor.py:186} INFO - Started process (PID=1032) to work on /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:39.640+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/trading_aggregation_dag.py for tasks to queue
+[2025-03-24T10:45:39.642+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:39.642+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:40.000+0000] {processor.py:925} INFO - DAG(s) 'Stock_Trades_Aggregation_Dag' retrieved from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:45:40.054+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:40.053+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-24T10:45:40.070+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:45:40.070+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
+[2025-03-24T10:45:40.085+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.451 seconds
+[2025-03-24T10:46:10.250+0000] {processor.py:186} INFO - Started process (PID=1044) to work on /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:46:10.251+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/trading_aggregation_dag.py for tasks to queue
+[2025-03-24T10:46:10.253+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:46:10.252+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:46:10.604+0000] {processor.py:925} INFO - DAG(s) 'Stock_Trades_Aggregation_Dag' retrieved from /opt/airflow/dags/trading_aggregation_dag.py
+[2025-03-24T10:46:10.655+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:46:10.655+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-24T10:46:10.672+0000] {logging_mixin.py:190} INFO - [2025-03-24T10:46:10.671+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Trades_Aggregation_Dag to 2025-03-24 10:40:00+00:00, run_after=2025-03-24 10:50:00+00:00
+[2025-03-24T10:46:10.687+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/trading_aggregation_dag.py took 0.441 seconds
