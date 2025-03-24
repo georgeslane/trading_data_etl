@@ -1,0 +1,19 @@
+[2025-03-23T08:50:47.500+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-23T08:50:47.573+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Clean_Data.flatten_return_values scheduled__2025-03-23T08:40:00+00:00 [queued]>
+[2025-03-23T08:50:47.591+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Clean_Data.flatten_return_values scheduled__2025-03-23T08:40:00+00:00 [queued]>
+[2025-03-23T08:50:47.591+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-23T08:50:47.633+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Clean_Data.flatten_return_values> on 2025-03-23 08:40:00+00:00
+[2025-03-23T08:50:47.653+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=425) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-23T08:50:47.655+0000] {standard_task_runner.py:72} INFO - Started process 431 to run task
+[2025-03-23T08:50:47.657+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Clean_Data.flatten_return_values', 'scheduled__2025-03-23T08:40:00+00:00', '--job-id', '684', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpobyd4jxm']
+[2025-03-23T08:50:47.660+0000] {standard_task_runner.py:105} INFO - Job 684: Subtask Clean_Data.flatten_return_values
+[2025-03-23T08:50:47.890+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Clean_Data.flatten_return_values scheduled__2025-03-23T08:40:00+00:00 [running]> on host a6bb3a5d9966
+[2025-03-23T08:50:48.272+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Clean_Data.flatten_return_values' AIRFLOW_CTX_EXECUTION_DATE='2025-03-23T08:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-23T08:40:00+00:00'
+[2025-03-23T08:50:48.273+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-23T08:50:48.275+0000] {logging_mixin.py:190} INFO - 6
+[2025-03-23T08:50:48.276+0000] {python.py:240} INFO - Done. Returned value was: []
+[2025-03-23T08:50:48.337+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-23T08:50:48.338+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Clean_Data.flatten_return_values, run_id=scheduled__2025-03-23T08:40:00+00:00, execution_date=20250323T084000, start_date=20250323T085047, end_date=20250323T085048
+[2025-03-23T08:50:48.434+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-23T08:50:48.497+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-23T08:50:48.500+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

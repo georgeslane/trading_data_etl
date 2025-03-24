@@ -1,0 +1,119 @@
+[2025-03-24T06:28:13.157+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T06:28:13.195+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.load_records manual__2025-03-24T06:27:11.529592+00:00 [queued]>
+[2025-03-24T06:28:13.203+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.load_records manual__2025-03-24T06:27:11.529592+00:00 [queued]>
+[2025-03-24T06:28:13.204+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-03-24T06:28:13.215+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Visualise_Data.load_records> on 2025-03-24 06:27:11.529592+00:00
+[2025-03-24T06:28:13.224+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1267) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T06:28:13.224+0000] {standard_task_runner.py:72} INFO - Started process 1269 to run task
+[2025-03-24T06:28:13.224+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Visualise_Data.load_records', 'manual__2025-03-24T06:27:11.529592+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmp_kmn6ops']
+[2025-03-24T06:28:13.225+0000] {standard_task_runner.py:105} INFO - Job 90: Subtask Visualise_Data.load_records
+[2025-03-24T06:28:13.333+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.load_records manual__2025-03-24T06:27:11.529592+00:00 [running]> on host b37006cbefbd
+[2025-03-24T06:28:13.497+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Visualise_Data.load_records' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T06:27:11.529592+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-24T06:27:11.529592+00:00'
+[2025-03-24T06:28:13.498+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T06:28:13.499+0000] {sql.py:295} INFO - Executing: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87285.55, 86984.4, 87269.53, 87005.01, 87095.18273358002, 32.55224417, 0.015056542169287698, 2162, Timestamp('2025-03-24 06:17:16'), Timestamp('2025-03-24 06:27:25')), (10, 'ETH-USD', 2069.14, 2062.35, 2069.14, 2064.41, 2065.092448340639, 940.26915543, 0.5887721699624295, 1597, Timestamp('2025-03-24 06:17:16'), Timestamp('2025-03-24 06:27:26'));
+[2025-03-24T06:28:13.529+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T06:28:13.559+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T06:28:13.562+0000] {sql.py:511} INFO - Running statement: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87285.55, 86984.4, 87269.53, 87005.01, 87095.18273358002, 32.55224417, 0.015056542169287698, 2162, Timestamp('2025-03-24 06:17:16'), Timestamp('2025-03-24 06:27:25')), (10, 'ETH-USD', 2069.14, 2062.35, 2069.14, 2064.41, 2065.092448340639, 940.26915543, 0.5887721699624295, 1597, Timestamp('2025-03-24 06:17:16'), Timestamp('2025-03-24 06:27:26'));, parameters: None
+[2025-03-24T06:28:13.563+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 301, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 467, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 516, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1136, "Column count doesn't match value count at row 1")
+[2025-03-24T06:28:13.593+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=Stock_Trades_Aggregation_Dag, task_id=Visualise_Data.load_records, run_id=manual__2025-03-24T06:27:11.529592+00:00, execution_date=20250324T062711, start_date=20250324T062813, end_date=20250324T062813
+[2025-03-24T06:28:13.662+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T06:28:13.662+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 90 for task Visualise_Data.load_records ((1136, "Column count doesn't match value count at row 1"); 1269)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 301, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 467, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 516, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1136, "Column count doesn't match value count at row 1")
+[2025-03-24T06:28:13.679+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T06:28:13.717+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T06:28:13.719+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

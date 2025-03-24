@@ -1,0 +1,22 @@
+[2025-03-14T00:50:38.633+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T00:50:38.801+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_amzn_aggregation_tasks manual__2025-03-14T00:50:19.367256+00:00 [queued]>
+[2025-03-14T00:50:38.839+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_amzn_aggregation_tasks manual__2025-03-14T00:50:19.367256+00:00 [queued]>
+[2025-03-14T00:50:38.840+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-14T00:50:39.314+0000] {taskinstance.py:2890} INFO - Executing <Task(_BranchPythonDecoratedOperator): Transform_Data.select_amzn_aggregation_tasks> on 2025-03-14 00:50:19.367256+00:00
+[2025-03-14T00:50:39.363+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=311) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-14T00:50:39.370+0000] {standard_task_runner.py:72} INFO - Started process 314 to run task
+[2025-03-14T00:50:39.362+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.select_amzn_aggregation_tasks', 'manual__2025-03-14T00:50:19.367256+00:00', '--job-id', '513', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpz3rb5v6h']
+[2025-03-14T00:50:39.371+0000] {standard_task_runner.py:105} INFO - Job 513: Subtask Transform_Data.select_amzn_aggregation_tasks
+[2025-03-14T00:50:39.789+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.select_amzn_aggregation_tasks manual__2025-03-14T00:50:19.367256+00:00 [running]> on host de76d7e767a3
+[2025-03-14T00:50:40.283+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.select_amzn_aggregation_tasks' AIRFLOW_CTX_EXECUTION_DATE='2025-03-14T00:50:19.367256+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-14T00:50:19.367256+00:00'
+[2025-03-14T00:50:40.286+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-14T00:50:40.401+0000] {logging_mixin.py:190} INFO - 0
+[2025-03-14T00:50:40.403+0000] {python.py:240} INFO - Done. Returned value was: ['Transform_Data.aggregate_amzn_data_over_one_day', 'Transform_Data.aggregate_amzn_data_over_one_hour', 'Transform_Data.aggregate_amzn_data_over_ten_minutes']
+[2025-03-14T00:50:40.403+0000] {branch.py:38} INFO - Branch into ['Transform_Data.aggregate_amzn_data_over_one_day', 'Transform_Data.aggregate_amzn_data_over_one_hour', 'Transform_Data.aggregate_amzn_data_over_ten_minutes']
+[2025-03-14T00:50:40.403+0000] {skipmixin.py:233} INFO - Following branch ('Transform_Data.aggregate_amzn_data_over_ten_minutes', 'Transform_Data.aggregate_amzn_data_over_one_day', 'Transform_Data.aggregate_amzn_data_over_one_hour')
+[2025-03-14T00:50:40.557+0000] {skipmixin.py:281} INFO - Skipping tasks []
+[2025-03-14T00:50:40.812+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-14T00:50:40.814+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.select_amzn_aggregation_tasks, run_id=manual__2025-03-14T00:50:19.367256+00:00, execution_date=20250314T005019, start_date=20250314T005038, end_date=20250314T005040
+[2025-03-14T00:50:41.399+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-14T00:50:41.832+0000] {taskinstance.py:3901} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2025-03-14T00:50:41.846+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,47 @@
+[2025-03-24T10:20:03.744+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T10:20:03.786+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [queued]>
+[2025-03-24T10:20:03.795+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [queued]>
+[2025-03-24T10:20:03.796+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T10:20:03.808+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes> on 2025-03-24 10:10:00+00:00
+[2025-03-24T10:20:03.819+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes', 'scheduled__2025-03-24T10:10:00+00:00', '--job-id', '536', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpor_ztiap']
+[2025-03-24T10:20:03.821+0000] {standard_task_runner.py:105} INFO - Job 536: Subtask Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes
+[2025-03-24T10:20:03.821+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=363) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T10:20:03.822+0000] {standard_task_runner.py:72} INFO - Started process 377 to run task
+[2025-03-24T10:20:03.951+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [running]> on host ecdce0959773
+[2025-03-24T10:20:04.124+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T10:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T10:10:00+00:00'
+[2025-03-24T10:20:04.126+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T10:20:04.130+0000] {conn.py:385} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.22.0.6', 9092)]>: connecting to broker:9092 [('172.22.0.6', 9092) IPv4]
+[2025-03-24T10:20:04.133+0000] {conn.py:593} INFO - Broker version identified as 2.6
+[2025-03-24T10:20:04.133+0000] {conn.py:445} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <checking_api_versions_recv> [IPv4 ('172.22.0.6', 9092)]>: Connection complete.
+[2025-03-24T10:20:04.147+0000] {conn.py:385} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.22.0.6', 9092)]>: connecting to kafka:9092 [('172.22.0.6', 9092) IPv4]
+[2025-03-24T10:20:04.148+0000] {conn.py:445} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <checking_api_versions_send> [IPv4 ('172.22.0.6', 9092)]>: Connection complete.
+[2025-03-24T10:20:04.148+0000] {conn.py:912} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.22.0.6', 9092)]>: Closing connection. 
+[2025-03-24T10:20:14.269+0000] {conn.py:912} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <connected> [IPv4 ('172.22.0.6', 9092)]>: Closing connection. 
+[2025-03-24T10:20:14.270+0000] {python.py:240} INFO - Done. Returned value was: []
+[2025-03-24T10:20:14.368+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T10:20:14.369+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes, run_id=scheduled__2025-03-24T10:10:00+00:00, execution_date=20250324T101000, start_date=20250324T102003, end_date=20250324T102014
+[2025-03-24T10:20:14.500+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T10:20:14.549+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T10:20:14.551+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-24T10:28:32.952+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T10:28:32.995+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [queued]>
+[2025-03-24T10:28:33.003+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [queued]>
+[2025-03-24T10:28:33.003+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T10:28:33.018+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes> on 2025-03-24 10:10:00+00:00
+[2025-03-24T10:28:33.027+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes', 'scheduled__2025-03-24T10:10:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpzv994mxe']
+[2025-03-24T10:28:33.029+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes
+[2025-03-24T10:28:33.030+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=225) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T10:28:33.031+0000] {standard_task_runner.py:72} INFO - Started process 228 to run task
+[2025-03-24T10:28:33.166+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-24T10:10:00+00:00 [running]> on host 2ed9e60eb606
+[2025-03-24T10:28:33.314+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T10:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T10:10:00+00:00'
+[2025-03-24T10:28:33.316+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T10:28:33.319+0000] {conn.py:385} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.22.0.4', 9092)]>: connecting to broker:9092 [('172.22.0.4', 9092) IPv4]
+[2025-03-24T10:28:33.329+0000] {conn.py:593} INFO - Broker version identified as 2.6
+[2025-03-24T10:28:33.330+0000] {conn.py:445} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <checking_api_versions_recv> [IPv4 ('172.22.0.4', 9092)]>: Connection complete.
+[2025-03-24T10:28:33.346+0000] {logging_mixin.py:190} INFO - Topic 'Finnhub' does not exist.
+[2025-03-24T10:28:33.346+0000] {python.py:240} INFO - Done. Returned value was: []
+[2025-03-24T10:28:33.427+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T10:28:33.428+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes, run_id=scheduled__2025-03-24T10:10:00+00:00, execution_date=20250324T101000, start_date=20250324T102832, end_date=20250324T102833
+[2025-03-24T10:28:33.525+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T10:28:33.582+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T10:28:33.587+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

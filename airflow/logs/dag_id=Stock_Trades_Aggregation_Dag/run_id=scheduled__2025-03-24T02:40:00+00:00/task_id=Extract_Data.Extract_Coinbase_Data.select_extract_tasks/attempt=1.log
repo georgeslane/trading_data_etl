@@ -1,0 +1,20 @@
+[2025-03-24T02:53:13.894+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T02:53:14.010+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Coinbase_Data.select_extract_tasks scheduled__2025-03-24T02:40:00+00:00 [queued]>
+[2025-03-24T02:53:14.379+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Coinbase_Data.select_extract_tasks scheduled__2025-03-24T02:40:00+00:00 [queued]>
+[2025-03-24T02:53:14.382+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T02:53:14.632+0000] {taskinstance.py:2890} INFO - Executing <Task(_BranchPythonDecoratedOperator): Extract_Data.Extract_Coinbase_Data.select_extract_tasks> on 2025-03-24 02:40:00+00:00
+[2025-03-24T02:53:14.687+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Extract_Data.Extract_Coinbase_Data.select_extract_tasks', 'scheduled__2025-03-24T02:40:00+00:00', '--job-id', '1318', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpwpcn65n3']
+[2025-03-24T02:53:14.701+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=221) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T02:53:14.702+0000] {standard_task_runner.py:72} INFO - Started process 237 to run task
+[2025-03-24T02:53:14.701+0000] {standard_task_runner.py:105} INFO - Job 1318: Subtask Extract_Data.Extract_Coinbase_Data.select_extract_tasks
+[2025-03-24T02:53:16.303+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Coinbase_Data.select_extract_tasks scheduled__2025-03-24T02:40:00+00:00 [running]> on host 823a55db0185
+[2025-03-24T02:53:19.292+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Extract_Data.Extract_Coinbase_Data.select_extract_tasks' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T02:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T02:40:00+00:00'
+[2025-03-24T02:53:19.313+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T02:53:19.786+0000] {python.py:240} INFO - Done. Returned value was: Extract_Data.Extract_Coinbase_Data.read_logs_back_ten_minutes
+[2025-03-24T02:53:19.809+0000] {branch.py:38} INFO - Branch into Extract_Data.Extract_Coinbase_Data.read_logs_back_ten_minutes
+[2025-03-24T02:53:19.810+0000] {skipmixin.py:233} INFO - Following branch ('Extract_Data.Extract_Coinbase_Data.read_logs_back_ten_minutes',)
+[2025-03-24T02:53:20.569+0000] {skipmixin.py:281} INFO - Skipping tasks [('Extract_Data.Extract_Coinbase_Data.read_logs_back_one_day', -1), ('Extract_Data.Extract_Coinbase_Data.read_logs_back_one_hour', -1)]
+[2025-03-24T02:53:21.827+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T02:53:21.828+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Extract_Data.Extract_Coinbase_Data.select_extract_tasks, run_id=scheduled__2025-03-24T02:40:00+00:00, execution_date=20250324T024000, start_date=20250324T025314, end_date=20250324T025321
+[2025-03-24T02:53:23.089+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T02:53:23.493+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

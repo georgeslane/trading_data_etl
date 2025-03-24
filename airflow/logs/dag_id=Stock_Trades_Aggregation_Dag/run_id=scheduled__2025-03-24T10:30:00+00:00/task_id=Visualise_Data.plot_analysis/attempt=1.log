@@ -1,0 +1,30 @@
+[2025-03-24T10:40:43.082+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T10:40:43.124+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.plot_analysis scheduled__2025-03-24T10:30:00+00:00 [queued]>
+[2025-03-24T10:40:43.133+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.plot_analysis scheduled__2025-03-24T10:30:00+00:00 [queued]>
+[2025-03-24T10:40:43.133+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T10:40:43.144+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Visualise_Data.plot_analysis> on 2025-03-24 10:30:00+00:00
+[2025-03-24T10:40:43.154+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=908) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T10:40:43.155+0000] {standard_task_runner.py:72} INFO - Started process 910 to run task
+[2025-03-24T10:40:43.154+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Visualise_Data.plot_analysis', 'scheduled__2025-03-24T10:30:00+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpi_ob3dnm']
+[2025-03-24T10:40:43.156+0000] {standard_task_runner.py:105} INFO - Job 82: Subtask Visualise_Data.plot_analysis
+[2025-03-24T10:40:43.272+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Visualise_Data.plot_analysis scheduled__2025-03-24T10:30:00+00:00 [running]> on host 2ed9e60eb606
+[2025-03-24T10:40:43.462+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Visualise_Data.plot_analysis' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T10:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T10:30:00+00:00'
+[2025-03-24T10:40:43.464+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T10:40:43.465+0000] {logging_mixin.py:190} INFO - ((10, 'BTC-USD', datetime.datetime(2025, 3, 24, 10, 29, 44), datetime.datetime(2025, 3, 24, 10, 30, 11), 132, 2.46951, 0.0187084, 87431.8, 87442.1, 87425.3, 87425.3, 87442.1, '{}'), (10, 'BTC-USD', datetime.datetime(2025, 3, 24, 10, 30, 5), datetime.datetime(2025, 3, 24, 10, 40, 14), 6246, 119.637, 0.0191541, 87593.0, 87786.9, 87427.6, 87434.5, 87751.6, '{}'), (60, 'BTC-USD', datetime.datetime(2025, 3, 24, 10, 29, 44), datetime.datetime(2025, 3, 24, 10, 40, 14), 6312, 120.138, 0.0190333, 87591.2, 87786.9, 87425.3, 87425.3, 87751.6, '{}'), (10, 'COIN', datetime.datetime(2025, 3, 24, 10, 31, 21), datetime.datetime(2025, 3, 24, 10, 32, 54), 33, 684.0, 20.7273, 197.999, 198.09, 197.92, 197.92, 198.07, '{}'), (60, 'COIN', datetime.datetime(2025, 3, 24, 10, 31, 21), datetime.datetime(2025, 3, 24, 10, 39, 21), 98, 3444.0, 35.1429, 198.179, 198.43, 197.92, 197.92, 198.43, '{}'), (10, 'ETH-USD', datetime.datetime(2025, 3, 24, 10, 29, 44), datetime.datetime(2025, 3, 24, 10, 30, 11), 48, 18.5298, 0.386038, 2092.96, 2093.21, 2092.55, 2093.14, 2092.94, '{}'), (10, 'ETH-USD', datetime.datetime(2025, 3, 24, 10, 30, 7), datetime.datetime(2025, 3, 24, 10, 40, 14), 3419, 1444.66, 0.422537, 2094.75, 2096.69, 2091.76, 2092.59, 2094.48, '{}'), (60, 'ETH-USD', datetime.datetime(2025, 3, 24, 10, 29, 44), datetime.datetime(2025, 3, 24, 10, 40, 14), 3454, 1462.59, 0.423447, 2094.73, 2096.69, 2091.76, 2093.14, 2094.48, '{}'))
+[2025-03-24T10:40:43.483+0000] {logging_mixin.py:190} INFO - <bound method NDFrame.describe of    aggregation_period   ticker  ... closing_price news
+0                  10  BTC-USD  ...      87442.10   {}
+1                  10  BTC-USD  ...      87751.60   {}
+2                  60  BTC-USD  ...      87751.60   {}
+3                  10     COIN  ...        198.07   {}
+4                  60     COIN  ...        198.43   {}
+5                  10  ETH-USD  ...       2092.94   {}
+6                  10  ETH-USD  ...       2094.48   {}
+7                  60  ETH-USD  ...       2094.48   {}
+
+[8 rows x 13 columns]>
+[2025-03-24T10:40:43.484+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-24T10:40:43.516+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T10:40:43.517+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Visualise_Data.plot_analysis, run_id=scheduled__2025-03-24T10:30:00+00:00, execution_date=20250324T103000, start_date=20250324T104043, end_date=20250324T104043
+[2025-03-24T10:40:43.610+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T10:40:43.648+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T10:40:43.650+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

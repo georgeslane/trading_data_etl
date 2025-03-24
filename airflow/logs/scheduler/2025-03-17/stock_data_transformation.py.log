@@ -1,0 +1,14 @@
+[2025-03-17T07:39:49.810+0000] {processor.py:186} INFO - Started process (PID=179) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:39:49.810+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-17T07:39:49.813+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:39:49.813+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:39:50.293+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:39:50.524+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:39:50.524+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-17T07:39:50.553+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:39:50.552+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-17 07:30:00+00:00, run_after=2025-03-17 07:40:00+00:00
+[2025-03-17T07:39:50.591+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.789 seconds
+[2025-03-17T07:40:20.916+0000] {processor.py:186} INFO - Started process (PID=282) to work on /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:40:20.917+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_transformation.py for tasks to queue
+[2025-03-17T07:40:20.919+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:40:20.919+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:40:21.177+0000] {processor.py:925} INFO - DAG(s) 'Stock_Data_Transformation_Dag' retrieved from /opt/airflow/dags/stock_data_transformation.py
+[2025-03-17T07:40:21.283+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:40:21.283+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-17T07:40:21.312+0000] {logging_mixin.py:190} INFO - [2025-03-17T07:40:21.312+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_Data_Transformation_Dag to 2025-03-17 07:40:00+00:00, run_after=2025-03-17 07:50:00+00:00
+[2025-03-17T07:40:21.345+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_transformation.py took 0.438 seconds

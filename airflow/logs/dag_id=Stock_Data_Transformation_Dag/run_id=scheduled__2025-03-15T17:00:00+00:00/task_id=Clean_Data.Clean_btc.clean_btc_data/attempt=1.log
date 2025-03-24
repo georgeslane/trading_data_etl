@@ -1,0 +1,15 @@
+[2025-03-15T17:11:36.117+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-15T17:11:36.165+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.Clean_btc.clean_btc_data scheduled__2025-03-15T17:00:00+00:00 [queued]>
+[2025-03-15T17:11:36.179+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.Clean_btc.clean_btc_data scheduled__2025-03-15T17:00:00+00:00 [queued]>
+[2025-03-15T17:11:36.179+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-15T17:11:36.193+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Clean_Data.Clean_btc.clean_btc_data> on 2025-03-15 17:00:00+00:00
+[2025-03-15T17:11:36.203+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2652) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-15T17:11:36.204+0000] {standard_task_runner.py:72} INFO - Started process 2656 to run task
+[2025-03-15T17:11:36.203+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Clean_Data.Clean_btc.clean_btc_data', 'scheduled__2025-03-15T17:00:00+00:00', '--job-id', '1737', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpkl1e2u3c']
+[2025-03-15T17:11:36.205+0000] {standard_task_runner.py:105} INFO - Job 1737: Subtask Clean_Data.Clean_btc.clean_btc_data
+[2025-03-15T17:11:36.394+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.Clean_btc.clean_btc_data scheduled__2025-03-15T17:00:00+00:00 [running]> on host 3b9677d4face
+[2025-03-15T17:11:36.408+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-03-15T17:11:36.411+0000] {process_utils.py:132} INFO - Sending 15 to group 2656. PIDs of all processes in the group: [2656]
+[2025-03-15T17:11:36.411+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 2656
+[2025-03-15T17:11:36.471+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2656, status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='17:11:35') (2656) terminated with exit code -15
+[2025-03-15T17:11:36.472+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 143

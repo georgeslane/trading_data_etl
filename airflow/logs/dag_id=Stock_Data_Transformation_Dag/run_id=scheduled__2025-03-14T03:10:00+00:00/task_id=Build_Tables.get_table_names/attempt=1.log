@@ -1,0 +1,35 @@
+[2025-03-14T11:24:38.978+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T11:24:39.102+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [queued]>
+[2025-03-14T11:24:39.127+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [queued]>
+[2025-03-14T11:24:39.127+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-14T11:24:39.246+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Build_Tables.get_table_names> on 2025-03-14 03:10:00+00:00
+[2025-03-14T11:24:39.276+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=537) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-14T11:24:39.281+0000] {standard_task_runner.py:72} INFO - Started process 540 to run task
+[2025-03-14T11:24:39.279+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Build_Tables.get_table_names', 'scheduled__2025-03-14T03:10:00+00:00', '--job-id', '952', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp94vxc6ej']
+[2025-03-14T11:24:39.284+0000] {standard_task_runner.py:105} INFO - Job 952: Subtask Build_Tables.get_table_names
+[2025-03-14T11:24:39.844+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [running]> on host de76d7e767a3
+[2025-03-14T11:24:41.042+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Build_Tables.get_table_names' AIRFLOW_CTX_EXECUTION_DATE='2025-03-14T03:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-14T03:10:00+00:00'
+[2025-03-14T11:24:41.044+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-14T11:24:41.047+0000] {python.py:240} INFO - Done. Returned value was: {'AMZN': 'amzn', 'BINANCE:BTCUSDT': 'binance_btcusdt'}
+[2025-03-14T11:24:41.492+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-14T11:24:41.495+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Build_Tables.get_table_names, run_id=scheduled__2025-03-14T03:10:00+00:00, execution_date=20250314T031000, start_date=20250314T112439, end_date=20250314T112441
+[2025-03-14T11:24:41.857+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-14T11:24:41.955+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-14T11:30:54.674+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T11:30:54.749+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [queued]>
+[2025-03-14T11:30:54.770+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [queued]>
+[2025-03-14T11:30:54.771+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-14T11:30:54.787+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Build_Tables.get_table_names> on 2025-03-14 03:10:00+00:00
+[2025-03-14T11:30:54.794+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=401) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-14T11:30:54.795+0000] {standard_task_runner.py:72} INFO - Started process 402 to run task
+[2025-03-14T11:30:54.795+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Build_Tables.get_table_names', 'scheduled__2025-03-14T03:10:00+00:00', '--job-id', '1190', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp8mvylkmu']
+[2025-03-14T11:30:54.797+0000] {standard_task_runner.py:105} INFO - Job 1190: Subtask Build_Tables.get_table_names
+[2025-03-14T11:30:54.908+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Build_Tables.get_table_names scheduled__2025-03-14T03:10:00+00:00 [running]> on host de76d7e767a3
+[2025-03-14T11:30:55.075+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Build_Tables.get_table_names' AIRFLOW_CTX_EXECUTION_DATE='2025-03-14T03:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-14T03:10:00+00:00'
+[2025-03-14T11:30:55.076+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-14T11:30:55.078+0000] {python.py:240} INFO - Done. Returned value was: {'BINANCE:BTCUSDT': 'binance_btcusdt', 'AMZN': 'amzn'}
+[2025-03-14T11:30:55.141+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-14T11:30:55.141+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Build_Tables.get_table_names, run_id=scheduled__2025-03-14T03:10:00+00:00, execution_date=20250314T031000, start_date=20250314T113054, end_date=20250314T113055
+[2025-03-14T11:30:55.212+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-14T11:30:55.272+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-14T11:30:55.275+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

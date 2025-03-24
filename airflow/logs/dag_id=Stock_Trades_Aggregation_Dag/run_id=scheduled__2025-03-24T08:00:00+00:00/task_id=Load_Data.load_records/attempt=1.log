@@ -1,0 +1,38 @@
+[2025-03-24T08:10:31.547+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T08:10:31.584+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T08:00:00+00:00 [queued]>
+[2025-03-24T08:10:31.594+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T08:00:00+00:00 [queued]>
+[2025-03-24T08:10:31.594+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T08:10:31.606+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Load_Data.load_records> on 2025-03-24 08:00:00+00:00
+[2025-03-24T08:10:31.616+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2467) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T08:10:31.617+0000] {standard_task_runner.py:72} INFO - Started process 2469 to run task
+[2025-03-24T08:10:31.616+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Load_Data.load_records', 'scheduled__2025-03-24T08:00:00+00:00', '--job-id', '370', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmp7pb4y00j']
+[2025-03-24T08:10:31.618+0000] {standard_task_runner.py:105} INFO - Job 370: Subtask Load_Data.load_records
+[2025-03-24T08:10:31.727+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T08:00:00+00:00 [running]> on host ecdce0959773
+[2025-03-24T08:10:31.900+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Load_Data.load_records' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T08:00:00+00:00'
+[2025-03-24T08:10:31.902+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T08:10:31.904+0000] {sql.py:295} INFO - Executing: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87100.0, 86867.49, 86867.49, 87052.61, 87026.46903757416, 32.2362701, 0.0212500132498352, 1517, Timestamp('2025-03-24 08:00:04'), Timestamp('2025-03-24 08:07:08'), '{}'), (10, 'COIN', 197.63, 195.91, 197.1, 196.83, 196.64251700680273, 10196.0, 34.68027210884354, 294, Timestamp('2025-03-24 08:00:04.939000'), Timestamp('2025-03-24 08:06:59.877000'), '{}'), (10, 'ETH-USD', 2075.64, 2069.05, 2069.11, 2073.06, 2073.6237077534793, 359.29457513, 0.357151665139165, 1006, Timestamp('2025-03-24 08:00:04'), Timestamp('2025-03-24 08:07:10'), '{}');
+[2025-03-24T08:10:31.938+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T08:10:31.970+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T08:10:31.974+0000] {sql.py:511} INFO - Running statement: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87100.0, 86867.49, 86867.49, 87052.61, 87026.46903757416, 32.2362701, 0.0212500132498352, 1517, Timestamp('2025-03-24 08:00:04'), Timestamp('2025-03-24 08:07:08'), '{}'), (10, 'COIN', 197.63, 195.91, 197.1, 196.83, 196.64251700680273, 10196.0, 34.68027210884354, 294, Timestamp('2025-03-24 08:00:04.939000'), Timestamp('2025-03-24 08:06:59.877000'), '{}'), (10, 'ETH-USD', 2075.64, 2069.05, 2069.11, 2073.06, 2073.6237077534793, 359.29457513, 0.357151665139165, 1006, Timestamp('2025-03-24 08:00:04'), Timestamp('2025-03-24 08:07:10'), '{}');, parameters: None
+[2025-03-24T08:10:31.977+0000] {sql.py:520} INFO - Rows affected: 3
+[2025-03-24T08:10:31.979+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:470 DeprecationWarning: Import of fetch_all_handler from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T08:10:31.980+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T08:10:31.981+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T08:10:31.982+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T08:10:32.016+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T08:10:32.017+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Load_Data.load_records, run_id=scheduled__2025-03-24T08:00:00+00:00, execution_date=20250324T080000, start_date=20250324T081031, end_date=20250324T081032
+[2025-03-24T08:10:32.112+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T08:10:32.169+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T08:10:32.174+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

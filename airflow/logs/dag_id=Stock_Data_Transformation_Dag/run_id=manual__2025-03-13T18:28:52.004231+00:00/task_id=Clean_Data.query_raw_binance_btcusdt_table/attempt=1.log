@@ -1,0 +1,54 @@
+[2025-03-13T18:28:58.891+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-13T18:28:59.033+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_raw_binance_btcusdt_table manual__2025-03-13T18:28:52.004231+00:00 [queued]>
+[2025-03-13T18:28:59.058+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_raw_binance_btcusdt_table manual__2025-03-13T18:28:52.004231+00:00 [queued]>
+[2025-03-13T18:28:59.060+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-13T18:28:59.509+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Clean_Data.query_raw_binance_btcusdt_table> on 2025-03-13 18:28:52.004231+00:00
+[2025-03-13T18:28:59.531+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=7768) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-13T18:28:59.532+0000] {standard_task_runner.py:72} INFO - Started process 7773 to run task
+[2025-03-13T18:28:59.531+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Clean_Data.query_raw_binance_btcusdt_table', 'manual__2025-03-13T18:28:52.004231+00:00', '--job-id', '176', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmp7dch6nrc']
+[2025-03-13T18:28:59.539+0000] {standard_task_runner.py:105} INFO - Job 176: Subtask Clean_Data.query_raw_binance_btcusdt_table
+[2025-03-13T18:28:59.983+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Clean_Data.query_raw_binance_btcusdt_table manual__2025-03-13T18:28:52.004231+00:00 [running]> on host 7fee16c5422e
+[2025-03-13T18:29:00.384+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Clean_Data.query_raw_binance_btcusdt_table' AIRFLOW_CTX_EXECUTION_DATE='2025-03-13T18:28:52.004231+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-13T18:28:52.004231+00:00'
+[2025-03-13T18:29:00.386+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-13T18:29:00.394+0000] {sql.py:295} INFO - Executing: 
+SELECT 
+    id, 
+    trade_codes, 
+    price, 
+    ticker,
+    unix_timestamp,
+    volume
+FROM raw_binance_btcusdt
+WHERE id > 
+(SELECT 
+    COALESCE(MAX(id), 0)
+FROM cleaned_binance_btcusdt
+);
+[2025-03-13T18:29:00.532+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-13T18:29:00.624+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-13T18:29:00.633+0000] {sql.py:511} INFO - Running statement: 
+SELECT 
+    id, 
+    trade_codes, 
+    price, 
+    ticker,
+    unix_timestamp,
+    volume
+FROM raw_binance_btcusdt
+WHERE id > 
+(SELECT 
+    COALESCE(MAX(id), 0)
+FROM cleaned_binance_btcusdt
+);, parameters: None
+[2025-03-13T18:29:00.663+0000] {sql.py:520} INFO - Rows affected: 5638
+[2025-03-13T18:29:00.684+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-13T18:29:00.689+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-13T18:29:00.690+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-13T18:29:01.075+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-13T18:29:01.077+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Clean_Data.query_raw_binance_btcusdt_table, run_id=manual__2025-03-13T18:28:52.004231+00:00, execution_date=20250313T182852, start_date=20250313T182859, end_date=20250313T182901
+[2025-03-13T18:29:01.262+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-13T18:29:01.309+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-13T18:29:01.313+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

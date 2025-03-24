@@ -1,28 +1,48 @@
-from apache_kafka.apache_kafka_producer import WebSocketConnection, KafkaServer
-from database.database import RawTable
-from settings import FINHUB_API_KEY
+from real_time_data_classes.apache_kafka import Producer, Admin
+from real_time_data_classes.data_connections import CoinbaseWebsocket, FinnhubWebsocket
+from config.settings import (FINHUB_API_KEY, 
+                             KAFKA_DATABASE_PASSWORD, 
+                             KAFKA_DATABASE_USER, 
+                             STOCK_LIST, 
+                             DATABASE_NAME,
+                             KAFKA_BROKER,
+                             BACKUP_KAFKA_BROKER)
+import threading
+import os
 
 def main():
-    # Kafka Config
-    KAFKA_BROKER = 'localhost:29092'
-    KAFKA_TOPIC = "BINANCE_BTCUSDT"
-    ticker_symbols = ["AAPL", "AMZN"]
 
-    KafkaInstance = KafkaServer(broker=KAFKA_BROKER, topics=ticker_symbols)
+    # Initialises a kafka admin object.
+    AdminInstance = Admin(broker=KAFKA_BROKER, 
+                      client_id='topics_manager')
 
-    FinnHubConnection = WebSocketConnection(kafka_producer = KafkaInstance.producer,
-                                            api_key = FINHUB_API_KEY,
-                                            ticker_symbols=ticker_symbols)
+    # Creates a kafka producer.
+    ProducerInstance = Producer(
+        broker=KAFKA_BROKER
+    )
 
-    FinnHubConnection.start_websocket()
+    # Creates coinbase and finnhub websocket connections.
+    CoinbaseInstance = CoinbaseWebsocket(endpoint="wss://ws-feed.exchange.coinbase.com",
+                             ticker_symbols = STOCK_LIST,
+                             producer=ProducerInstance)
 
-    tables = {}
-    for stock in ticker_symbols:
-        modified_stock = stock.replace(':', '_')
-        tables[f'raw_{modified_stock}'] = RawTable(database_name = 'FinanceDB', table_name = f'raw_{modified_stock}')
+    FinnhubInstance = FinnhubWebsocket(api_key=FINHUB_API_KEY,
+                              endpoint="wss://ws.finnhub.io",
+                              ticker_symbols=STOCK_LIST,
+                              producer=ProducerInstance)
+    
+    AdminInstance.setup_topics(tickers_dictionary=STOCK_LIST)
 
-    KafkaInstance.insert_data_into_raw_tables(tables_dictionary=tables)
+    # Creates and starts parrallel threads for the websockets being subscribed to.
+    threads = {
+        "finnhub_thread": threading.Thread(target=FinnhubInstance.start_websocket),
+        "coinbase_thread": threading.Thread(target=CoinbaseInstance.start_websocket)
+    }
+
+    for thread in threads:
+        threads[thread].start()
+    for thread in threads:
+        threads[thread].join()
 
 if __name__ == "__main__":  
     main()
-

@@ -1,0 +1,38 @@
+[2025-03-24T10:40:39.294+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T10:40:39.336+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T10:30:00+00:00 [queued]>
+[2025-03-24T10:40:39.344+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T10:30:00+00:00 [queued]>
+[2025-03-24T10:40:39.344+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T10:40:39.357+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Load_Data.load_records> on 2025-03-24 10:30:00+00:00
+[2025-03-24T10:40:39.368+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=900) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T10:40:39.369+0000] {standard_task_runner.py:72} INFO - Started process 902 to run task
+[2025-03-24T10:40:39.371+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Load_Data.load_records', 'scheduled__2025-03-24T10:30:00+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpd0kvrzp5']
+[2025-03-24T10:40:39.373+0000] {standard_task_runner.py:105} INFO - Job 80: Subtask Load_Data.load_records
+[2025-03-24T10:40:39.506+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.load_records scheduled__2025-03-24T10:30:00+00:00 [running]> on host 2ed9e60eb606
+[2025-03-24T10:40:39.731+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Load_Data.load_records' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T10:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T10:30:00+00:00'
+[2025-03-24T10:40:39.733+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T10:40:39.735+0000] {sql.py:295} INFO - Executing: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87786.87, 87427.6, 87434.53, 87751.59, 87592.95762728146, 119.63657986, 0.019154111408901695, 6246, Timestamp('2025-03-24 10:30:05'), Timestamp('2025-03-24 10:40:14'), '{}'), (10, 'COIN', 198.43, 197.92, 197.92, 198.43, 198.1791836734694, 3444.0, 35.142857142857146, 98, Timestamp('2025-03-24 10:31:21.355000'), Timestamp('2025-03-24 10:39:21.301000'), '{}'), (10, 'ETH-USD', 2096.69, 2091.76, 2092.59, 2094.48, 2094.7509447206785, 1444.65499692, 0.4225372907048845, 3419, Timestamp('2025-03-24 10:30:07'), Timestamp('2025-03-24 10:40:14'), '{}'), (60, 'BTC-USD', 87786.87, 87425.29, 87425.29, 87751.59, 87591.24202154626, 120.13805609, 0.0190332788482256, 6312, Timestamp('2025-03-24 10:29:44'), Timestamp('2025-03-24 10:40:14'), '{}'), (60, 'COIN', 198.43, 197.92, 197.92, 198.43, 198.1791836734694, 3444.0, 35.142857142857146, 98, Timestamp('2025-03-24 10:31:21.355000'), Timestamp('2025-03-24 10:39:21.301000'), '{}'), (60, 'ETH-USD', 2096.69, 2091.76, 2093.14, 2094.48, 2094.733309206717, 1462.58513437, 0.4234467673335264, 3454, Timestamp('2025-03-24 10:29:44'), Timestamp('2025-03-24 10:40:14'), '{}');
+[2025-03-24T10:40:39.768+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T10:40:39.811+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-24T10:40:39.815+0000] {sql.py:511} INFO - Running statement: 
+INSERT IGNORE INTO aggregated_trades (aggregation_period, ticker, max_price, min_price, 
+opening_price, closing_price, average_price, total_volume, average_volume, 
+num_trades, opening_timestamp, closing_timestamp, news)
+VALUES (10, 'BTC-USD', 87786.87, 87427.6, 87434.53, 87751.59, 87592.95762728146, 119.63657986, 0.019154111408901695, 6246, Timestamp('2025-03-24 10:30:05'), Timestamp('2025-03-24 10:40:14'), '{}'), (10, 'COIN', 198.43, 197.92, 197.92, 198.43, 198.1791836734694, 3444.0, 35.142857142857146, 98, Timestamp('2025-03-24 10:31:21.355000'), Timestamp('2025-03-24 10:39:21.301000'), '{}'), (10, 'ETH-USD', 2096.69, 2091.76, 2092.59, 2094.48, 2094.7509447206785, 1444.65499692, 0.4225372907048845, 3419, Timestamp('2025-03-24 10:30:07'), Timestamp('2025-03-24 10:40:14'), '{}'), (60, 'BTC-USD', 87786.87, 87425.29, 87425.29, 87751.59, 87591.24202154626, 120.13805609, 0.0190332788482256, 6312, Timestamp('2025-03-24 10:29:44'), Timestamp('2025-03-24 10:40:14'), '{}'), (60, 'COIN', 198.43, 197.92, 197.92, 198.43, 198.1791836734694, 3444.0, 35.142857142857146, 98, Timestamp('2025-03-24 10:31:21.355000'), Timestamp('2025-03-24 10:39:21.301000'), '{}'), (60, 'ETH-USD', 2096.69, 2091.76, 2093.14, 2094.48, 2094.733309206717, 1462.58513437, 0.4234467673335264, 3454, Timestamp('2025-03-24 10:29:44'), Timestamp('2025-03-24 10:40:14'), '{}');, parameters: None
+[2025-03-24T10:40:39.818+0000] {sql.py:520} INFO - Rows affected: 5
+[2025-03-24T10:40:39.819+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:470 DeprecationWarning: Import of fetch_all_handler from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T10:40:39.820+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:471 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T10:40:39.821+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:486 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T10:40:39.822+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/operators/sql.py:311 DeprecationWarning: Import of return_single_query_results from the '***.providers.common.sql.hooks' module is deprecated and will
+be removed in the future. Please import it from '***.providers.common.sql.hooks.handlers'.
+[2025-03-24T10:40:39.854+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T10:40:39.855+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Load_Data.load_records, run_id=scheduled__2025-03-24T10:30:00+00:00, execution_date=20250324T103000, start_date=20250324T104039, end_date=20250324T104039
+[2025-03-24T10:40:39.944+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T10:40:39.996+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T10:40:40.000+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

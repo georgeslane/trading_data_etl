@@ -1,0 +1,151 @@
+[2025-03-14T00:32:51.829+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T00:32:52.061+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.aggregate_binance_btcusdt_data_over_one_hour manual__2025-03-14T00:32:34.711229+00:00 [queued]>
+[2025-03-14T00:32:52.120+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.aggregate_binance_btcusdt_data_over_one_hour manual__2025-03-14T00:32:34.711229+00:00 [queued]>
+[2025-03-14T00:32:52.122+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-14T00:32:52.183+0000] {taskinstance.py:2890} INFO - Executing <Task(SQLExecuteQueryOperator): Transform_Data.aggregate_binance_btcusdt_data_over_one_hour> on 2025-03-14 00:32:34.711229+00:00
+[2025-03-14T00:32:52.228+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4527) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-14T00:32:52.236+0000] {standard_task_runner.py:72} INFO - Started process 4536 to run task
+[2025-03-14T00:32:52.227+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Transform_Data.aggregate_binance_btcusdt_data_over_one_hour', 'manual__2025-03-14T00:32:34.711229+00:00', '--job-id', '454', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_transformation.py', '--cfg-path', '/tmp/tmpwev0iy_8']
+[2025-03-14T00:32:52.239+0000] {standard_task_runner.py:105} INFO - Job 454: Subtask Transform_Data.aggregate_binance_btcusdt_data_over_one_hour
+[2025-03-14T00:32:52.889+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.aggregate_binance_btcusdt_data_over_one_hour manual__2025-03-14T00:32:34.711229+00:00 [running]> on host 7fee16c5422e
+[2025-03-14T00:32:53.848+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Transform_Data.aggregate_binance_btcusdt_data_over_one_hour' AIRFLOW_CTX_EXECUTION_DATE='2025-03-14T00:32:34.711229+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-14T00:32:34.711229+00:00'
+[2025-03-14T00:32:53.855+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-14T00:32:53.865+0000] {sql.py:295} INFO - Executing: 
+INSERT INTO aggregated_binance_btcusdt 
+(start_id, aggregation_period, ticker, start_timestamp, trade_conditions, 
+number_of_trades, total_volume, average_volume, average_price, maximum_price, 
+minimum_price, opening_price, closing_price)
+SELECT 
+    MIN(id) AS start_id,
+    60 AS aggregation_period, 
+    ticker,
+    MIN(timestamp) AS start_timestamp,
+    JSON_ARRAYAGG(trade_conditions) AS trade_conditions,
+    COUNT(id) AS number_of_trades,
+    SUM(volume) AS total_volume,
+    AVG(volume) AS average_volume,
+    AVG(price) AS average_price,
+    MAX(price) AS maximum_price,
+    MIN(price) AS minimum_price,
+    (SELECT price FROM cleaned_binance_btcusdt ORDER BY timestamp ASC LIMIT 1) AS opening_price,
+    (SELECT price FROM cleaned_binance_btcusdt ORDER BY timestamp DESC LIMIT 1) AS closing_price
+FROM cleaned_binance_btcusdt
+WHERE timestamp >= NOW() - INTERVAL 60 MINUTE;
+[2025-03-14T00:32:54.103+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-14T00:32:54.355+0000] {base.py:84} INFO - Retrieving connection 'mysql_finance_db'
+[2025-03-14T00:32:54.375+0000] {sql.py:511} INFO - Running statement: 
+INSERT INTO aggregated_binance_btcusdt 
+(start_id, aggregation_period, ticker, start_timestamp, trade_conditions, 
+number_of_trades, total_volume, average_volume, average_price, maximum_price, 
+minimum_price, opening_price, closing_price)
+SELECT 
+    MIN(id) AS start_id,
+    60 AS aggregation_period, 
+    ticker,
+    MIN(timestamp) AS start_timestamp,
+    JSON_ARRAYAGG(trade_conditions) AS trade_conditions,
+    COUNT(id) AS number_of_trades,
+    SUM(volume) AS total_volume,
+    AVG(volume) AS average_volume,
+    AVG(price) AS average_price,
+    MAX(price) AS maximum_price,
+    MIN(price) AS minimum_price,
+    (SELECT price FROM cleaned_binance_btcusdt ORDER BY timestamp ASC LIMIT 1) AS opening_price,
+    (SELECT price FROM cleaned_binance_btcusdt ORDER BY timestamp DESC LIMIT 1) AS closing_price
+FROM cleaned_binance_btcusdt
+WHERE timestamp >= NOW() - INTERVAL 60 MINUTE;, parameters: None
+[2025-03-14T00:32:54.384+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 301, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 467, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 516, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1140, "In aggregated query without GROUP BY, expression #3 of SELECT list contains nonaggregated column 'FINANCE_DATABASE.cleaned_binance_btcusdt.ticker'; this is incompatible with sql_mode=only_full_group_by")
+[2025-03-14T00:32:54.572+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=Stock_Data_Transformation_Dag, task_id=Transform_Data.aggregate_binance_btcusdt_data_over_one_hour, run_id=manual__2025-03-14T00:32:34.711229+00:00, execution_date=20250314T003234, start_date=20250314T003252, end_date=20250314T003254
+[2025-03-14T00:32:55.175+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-14T00:32:55.176+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 454 for task Transform_Data.aggregate_binance_btcusdt_data_over_one_hour ((1140, "In aggregated query without GROUP BY, expression #3 of SELECT list contains nonaggregated column 'FINANCE_DATABASE.cleaned_binance_btcusdt.ticker'; this is incompatible with sql_mode=only_full_group_by"); 4536)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 301, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 467, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 516, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1140, "In aggregated query without GROUP BY, expression #3 of SELECT list contains nonaggregated column 'FINANCE_DATABASE.cleaned_binance_btcusdt.ticker'; this is incompatible with sql_mode=only_full_group_by")
+[2025-03-14T00:32:55.240+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-14T00:32:55.473+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-14T00:32:55.484+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,25 @@
+[2025-03-21T16:26:32.940+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-21T16:26:33.011+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes manual__2025-03-21T16:26:27.035770+00:00 [queued]>
+[2025-03-21T16:26:33.024+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Data_Transformation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes manual__2025-03-21T16:26:27.035770+00:00 [queued]>
+[2025-03-21T16:26:33.024+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-21T16:26:33.044+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes> on 2025-03-21 16:26:27.035770+00:00
+[2025-03-21T16:26:33.064+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3243) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-21T16:26:33.074+0000] {standard_task_runner.py:72} INFO - Started process 3246 to run task
+[2025-03-21T16:26:33.067+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Data_Transformation_Dag', 'Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes', 'manual__2025-03-21T16:26:27.035770+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpq6819nqp']
+[2025-03-21T16:26:33.082+0000] {standard_task_runner.py:105} INFO - Job 84: Subtask Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes
+[2025-03-21T16:26:33.310+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Data_Transformation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes manual__2025-03-21T16:26:27.035770+00:00 [running]> on host bbdedc30e448
+[2025-03-21T16:26:33.555+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Data_Transformation_Dag' AIRFLOW_CTX_TASK_ID='Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes' AIRFLOW_CTX_EXECUTION_DATE='2025-03-21T16:26:27.035770+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-21T16:26:27.035770+00:00'
+[2025-03-21T16:26:33.556+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-21T16:26:33.560+0000] {conn.py:385} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.22.0.6', 9092)]>: connecting to broker:9092 [('172.22.0.6', 9092) IPv4]
+[2025-03-21T16:26:33.561+0000] {conn.py:593} INFO - Broker version identified as 2.6
+[2025-03-21T16:26:33.562+0000] {conn.py:445} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <checking_api_versions_recv> [IPv4 ('172.22.0.6', 9092)]>: Connection complete.
+[2025-03-21T16:26:33.565+0000] {conn.py:385} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.22.0.6', 9092)]>: connecting to kafka:9092 [('172.22.0.6', 9092) IPv4]
+[2025-03-21T16:26:33.566+0000] {conn.py:445} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <checking_api_versions_send> [IPv4 ('172.22.0.6', 9092)]>: Connection complete.
+[2025-03-21T16:26:33.566+0000] {conn.py:912} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.22.0.6', 9092)]>: Closing connection. 
+[2025-03-21T16:26:43.677+0000] {conn.py:912} INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=kafka:9092 <connected> [IPv4 ('172.22.0.6', 9092)]>: Closing connection. 
+[2025-03-21T16:26:43.678+0000] {python.py:240} INFO - Done. Returned value was: []
+[2025-03-21T16:26:43.796+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-21T16:26:43.796+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Data_Transformation_Dag, task_id=Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes, run_id=manual__2025-03-21T16:26:27.035770+00:00, execution_date=20250321T162627, start_date=20250321T162633, end_date=20250321T162643
+[2025-03-21T16:26:43.949+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-21T16:26:44.013+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-21T16:26:44.016+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,4 @@
+[2025-03-14T14:30:23.499+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-14T14:30:23.566+0000] {taskinstance.py:2604} INFO - Dependencies not met for <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.aggregate_mstr_data_over_ten_minutes scheduled__2025-03-14T14:20:00+00:00 [skipped]>, dependency 'Not Previously Skipped' FAILED: Skipping because of previous XCom result from parent task Transform_Data.select_eth_aggregation_tasks
+[2025-03-14T14:30:23.567+0000] {taskinstance.py:2604} INFO - Dependencies not met for <TaskInstance: Stock_Data_Transformation_Dag.Transform_Data.aggregate_mstr_data_over_ten_minutes scheduled__2025-03-14T14:20:00+00:00 [skipped]>, dependency 'Task Instance State' FAILED: Task is in the 'skipped' state.
+[2025-03-14T14:30:23.574+0000] {local_task_job_runner.py:166} INFO - Task is not able to be run

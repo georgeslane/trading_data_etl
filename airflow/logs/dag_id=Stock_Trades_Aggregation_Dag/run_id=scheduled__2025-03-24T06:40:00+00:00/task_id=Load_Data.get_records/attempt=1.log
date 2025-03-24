@@ -1,0 +1,18 @@
+[2025-03-24T06:50:25.349+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T06:50:25.387+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.get_records scheduled__2025-03-24T06:40:00+00:00 [queued]>
+[2025-03-24T06:50:25.396+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.get_records scheduled__2025-03-24T06:40:00+00:00 [queued]>
+[2025-03-24T06:50:25.396+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T06:50:25.407+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Load_Data.get_records> on 2025-03-24 06:40:00+00:00
+[2025-03-24T06:50:25.416+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2200) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T06:50:25.417+0000] {standard_task_runner.py:72} INFO - Started process 2202 to run task
+[2025-03-24T06:50:25.416+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Load_Data.get_records', 'scheduled__2025-03-24T06:40:00+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmprrdno_o_']
+[2025-03-24T06:50:25.417+0000] {standard_task_runner.py:105} INFO - Job 165: Subtask Load_Data.get_records
+[2025-03-24T06:50:25.530+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Load_Data.get_records scheduled__2025-03-24T06:40:00+00:00 [running]> on host b37006cbefbd
+[2025-03-24T06:50:25.749+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Load_Data.get_records' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T06:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T06:40:00+00:00'
+[2025-03-24T06:50:25.750+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T06:50:25.753+0000] {python.py:240} INFO - Done. Returned value was: (10, 'BTC-USD', 87015.01, 86921.45, 86927.79, 87014.86, 86966.2815042118, 8.48992993, 0.010216522178098677, 831, Timestamp('2025-03-24 06:40:05'), Timestamp('2025-03-24 06:44:48'), '{}'), (10, 'ETH-USD', 2066.96, 2064.17, 2065.4, 2066.62, 2065.817731343284, 106.60402538, 0.31822097128358207, 335, Timestamp('2025-03-24 06:40:04'), Timestamp('2025-03-24 06:44:48'), '{}')
+[2025-03-24T06:50:25.816+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T06:50:25.816+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_Trades_Aggregation_Dag, task_id=Load_Data.get_records, run_id=scheduled__2025-03-24T06:40:00+00:00, execution_date=20250324T064000, start_date=20250324T065025, end_date=20250324T065025
+[2025-03-24T06:50:25.911+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T06:50:25.957+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T06:50:25.960+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
