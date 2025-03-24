@@ -1,0 +1,26 @@
+# Crypto & Stocks ETL project
+
+## Introduction
+This repository contains code to subscribe to selected stock and crypto symbols using several websocket live data feeds. It also contains code to regulaarly extract the live data from Apach Kafka logs and, through the use of an airflow pipeline, clean, transform, enrich, aggregate and finally load the data into a MySQL table, which is being used to power a tableau dashboard.
+
+## Prerequistites:
+The following packages must be installed to run this repository:
+
+* kafka-python
+* flask
+* websocket-client
+* dotenv
+* mysql-connector-python
+* apache-airflow-providers-mysql
+
+These can be found in the 'requirements.txt' file.
+
+## Running the code:
+In order to run the code, navigate to the main directory and run the command 'docker-compose up -d' in the terminal. This starts the kafka, airflow and mysql containers which are required by the code. After waiting till all containers are running and ports 8080, 3306, 22181 and 29092 are active, run the main.py script in the main directory. 
+This initialises the websocket connection and pushes live data to the containerised kafka broker.
+
+To see the airflow dag run, open port localhost:8080 and log in using the credentials 'user:airflow, password:airflow'. The dag is scheduled to run every 10 minutes, or it can be triggered mannually. To see the code for the dag, navigate to the airflow/dags directory.
+
+To see the final table, open the mysql workbench tool or a similar mysql viewer application and log in to the FINANCE_DATABASE running on port localhost:3306 using the credentials 'user:root, password:root'. The table 'aggregated_trades' contains aggregated trade data and is updated by the dag every 10 minutes. Alternatively, navigate to analytics/Trading Data Analytics.twbx to see more advanced analytics on the aggregated data.
+
+

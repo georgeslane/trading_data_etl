@@ -1,0 +1,249 @@
+[2025-03-23T20:10:03.881+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-23T20:10:03.947+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-23T20:00:00+00:00 [queued]>
+[2025-03-23T20:10:03.960+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-23T20:00:00+00:00 [queued]>
+[2025-03-23T20:10:03.960+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-23T20:10:03.979+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes> on 2025-03-23 20:00:00+00:00
+[2025-03-23T20:10:03.995+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1903) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-23T20:10:03.996+0000] {standard_task_runner.py:72} INFO - Started process 1908 to run task
+[2025-03-23T20:10:03.999+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_Trades_Aggregation_Dag', 'Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes', 'scheduled__2025-03-23T20:00:00+00:00', '--job-id', '902', '--raw', '--subdir', 'DAGS_FOLDER/trading_aggregation_dag.py', '--cfg-path', '/tmp/tmpwk5lbk0l']
+[2025-03-23T20:10:04.002+0000] {standard_task_runner.py:105} INFO - Job 902: Subtask Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes
+[2025-03-23T20:10:04.199+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_Trades_Aggregation_Dag.Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes scheduled__2025-03-23T20:00:00+00:00 [running]> on host 823a55db0185
+[2025-03-23T20:10:04.426+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_Trades_Aggregation_Dag' AIRFLOW_CTX_TASK_ID='Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes' AIRFLOW_CTX_EXECUTION_DATE='2025-03-23T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-23T20:00:00+00:00'
+[2025-03-23T20:10:04.429+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-23T20:10:04.454+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.454+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.455+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:04.498+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.499+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.499+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:04.554+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.555+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.555+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:04.602+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.602+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.602+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:04.642+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.643+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.643+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:04.693+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.694+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.694+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:04.745+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.745+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.745+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:04.854+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.854+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.862+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.862+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.862+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:04.911+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.912+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.912+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:04.960+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:04.961+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:04.961+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.015+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.015+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.016+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.061+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.061+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.062+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.110+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.110+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.111+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.05 secs
+[2025-03-23T20:10:05.162+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.162+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.162+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.212+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.212+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.212+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.262+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.262+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.262+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.317+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.318+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.318+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.363+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.363+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.363+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.417+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.418+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.418+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.469+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.469+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.469+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.524+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.524+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.525+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:05.573+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.573+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.574+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.614+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.614+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.614+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.05 secs
+[2025-03-23T20:10:05.664+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.664+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.665+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.715+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.715+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.715+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.771+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.772+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.772+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.817+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.817+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.818+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.869+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.870+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.870+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.916+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.917+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.917+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:05.966+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:05.966+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:05.967+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.017+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.018+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.018+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.067+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.068+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.068+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.125+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.126+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.126+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.168+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.168+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.169+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.221+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.221+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.221+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.275+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.275+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.275+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.322+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.322+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.323+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.04 secs
+[2025-03-23T20:10:06.380+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.381+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.381+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.03 secs
+[2025-03-23T20:10:06.420+0000] {conn.py:1506} WARNING - DNS lookup failed for broker:9092, exception was [Errno -5] No address associated with hostname. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-03-23T20:10:06.420+0000] {conn.py:312} ERROR - DNS lookup failed for broker:9092 (0)
+[2025-03-23T20:10:06.420+0000] {client_async.py:1039} WARNING - No node available during check_version; sleeping 0.01 secs
+[2025-03-23T20:10:06.434+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/tasks/read_kafka.py", line 22, in read_kafka_logs
+    consumer = KafkaConsumer(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/consumer/group.py", line 379, in __init__
+    self._client = self.config['kafka_client'](metrics=self._metrics, **self.config)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 262, in __init__
+    self.config['api_version'] = self.check_version()
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 1064, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2025-03-23T20:10:06.496+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=Stock_Trades_Aggregation_Dag, task_id=Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes, run_id=scheduled__2025-03-23T20:00:00+00:00, execution_date=20250323T200000, start_date=20250323T201003, end_date=20250323T201006
+[2025-03-23T20:10:06.632+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-23T20:10:06.633+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 902 for task Extract_Data.Extract_Finnhub_Data.read_logs_back_ten_minutes (NoBrokersAvailable; 1908)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/tasks/read_kafka.py", line 22, in read_kafka_logs
+    consumer = KafkaConsumer(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/consumer/group.py", line 379, in __init__
+    self._client = self.config['kafka_client'](metrics=self._metrics, **self.config)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 262, in __init__
+    self.config['api_version'] = self.check_version()
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 1064, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2025-03-23T20:10:06.662+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-23T20:10:06.724+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

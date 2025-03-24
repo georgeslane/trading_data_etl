@@ -62,8 +62,10 @@ def get_records(enriched_dataframe: object):
 
     insert_string = ""
 
-    for tuple in tuples_list: 
-        insert_string += str(tuple)
+    for record in tuples_list: 
+        if len(record) == 12:
+            record = record + ('{}',)
+        insert_string += f"{str(record)}, "
     
-    return insert_string
+    return insert_string.rstrip(", ")
             

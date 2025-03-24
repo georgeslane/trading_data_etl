@@ -13,7 +13,7 @@ AIRFLOW_DATABASE_USER = os.environ.get("AIRFLOW_DATABASE_USER")
 
 DATABASE_NAME = "FINANCE_DATABASE"
 STOCK_LIST = {
-    "Finnhub": ["AAPL", "AMZN"],
+    "Finnhub": ["MSTR", "COIN"],
     "Coinbase": ["BTC-USD", "ETH-USD"]
 }
 KAFKA_BROKER = "localhost:29092"

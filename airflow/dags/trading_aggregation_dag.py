@@ -11,9 +11,11 @@ from airflow.operators.empty import EmptyOperator
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from tasks.read_kafka import read_kafka_logs, select_extract_tasks
 from tasks.clean_data import select_relevant_columns, flatten_return_values, clean_timestamp
-from tasks.transform_data import aggregate_data, enrich_data
+from tasks.transform_data import aggregate_data, enrich_data, get_records
+from tasks.sql_statements import CREATE_TABLE, INSERT_INTO_TABLE, GET_RECORDS
+from tasks.analyse_data import plot_analysis
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from config.settings import STOCK_LIST, DATABASE_NAME, KAFKA_BROKER, BACKUP_KAFKA_BROKER
+from config.settings import STOCK_LIST, DATABASE_NAME, KAFKA_BROKER, BACKUP_KAFKA_BROKER, FINHUB_API_KEY
 from utils.utils import Utils
 
 default_args = {
@@ -22,7 +24,6 @@ default_args = {
     "retry_delay": timedelta(seconds=30),
     "tickers": STOCK_LIST,
     "raw_data":{},
-    "database_name": DATABASE_NAME,
     "database_user": "airflow_user",
     "database_password": "password",
 }
@@ -50,12 +51,12 @@ with DAG(
 
                 last_10_minutes_of_logs = read_kafka_logs.override(task_id="read_logs_back_ten_minutes")(topic=topic, 
                                                                                                          broker="broker:9092",
-                                                                                                         minutes = 400)
+                                                                                                         minutes = 10)
                 all_logs.append(last_10_minutes_of_logs)
                 
                 last_hour_of_logs = read_kafka_logs.override(task_id="read_logs_back_one_hour")(topic=topic, 
                                                                                                 broker="broker:9092",
-                                                                                                minutes = 1440)
+                                                                                                minutes = 60)
                 all_logs.append(last_hour_of_logs)
                 
                 last_day_of_logs = read_kafka_logs.override(task_id="read_logs_back_one_day")(topic=topic, 
@@ -90,7 +91,7 @@ with DAG(
         aggregated_trades = aggregate_data(cleaned_trade_list=cleaned_timestamp)
 
         enriched_trades = enrich_data(aggregated_dataframe=aggregated_trades,
-                                      api_key="cv0pib9r01qo8ssi6d00cv0pib9r01qo8ssi6d0g")
+                                      api_key=FINHUB_API_KEY)
         
         # add_to_table = 
 
@@ -99,18 +100,50 @@ with DAG(
             >> enriched_trades
         )
 
-    with TaskGroup(group_id="Visualise_Data") as Visualise_Data:
-        pass
+    with TaskGroup(group_id="Load_Data") as Load_Data:
 
+        records = get_records(enriched_dataframe=enriched_trades)
+
+        formatted_insert_query = INSERT_INTO_TABLE.format(records)
+
+        create_table = SQLExecuteQueryOperator(task_id="create_table",
+                                               sql=CREATE_TABLE,
+                                               autocommit=True,
+                                               conn_id="mysql_finance_db",
+                                               database=DATABASE_NAME)
         
-                
+        load_records = SQLExecuteQueryOperator(task_id="load_records",
+                                               sql=formatted_insert_query,
+                                               autocommit=True,
+                                               conn_id="mysql_finance_db",
+                                               database=DATABASE_NAME)
+        
+        (
+            records
+            >> create_table
+            >> load_records
+        )
 
+    with TaskGroup(group_id="Visualise_Data") as Visualise_Data:
 
-
+        records= SQLExecuteQueryOperator(task_id="fetch_records",
+                                               sql=GET_RECORDS,
+                                               autocommit=True,
+                                               conn_id="mysql_finance_db",
+                                               database=DATABASE_NAME)
+        
+        graph = plot_analysis(data=records.output)
+        
+        (
+            records
+            >> graph
+        )
+        
 
     (
         Extract_Data
         >> Clean_Data
         >>Transform_Data
+        >> Load_Data
         >> Visualise_Data
     )

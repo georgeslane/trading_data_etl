@@ -11,8 +11,6 @@ import threading
 import os
 
 def main():
-    # Runs the docker command to start the kafka, airflow and mysql containers.
-    os.system("docker-compose up -d")
 
     # Initialises a kafka admin object.
     AdminInstance = Admin(broker=KAFKA_BROKER, 
