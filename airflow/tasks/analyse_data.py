@@ -1,7 +1,6 @@
 from airflow.decorators import task
 import pandas as pd
 
-
 @task
 def plot_analysis(data):
     """Prints some statistics on the dataframe, as a sense check of the data.

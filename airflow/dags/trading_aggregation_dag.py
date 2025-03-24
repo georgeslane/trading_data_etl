@@ -41,12 +41,13 @@ with DAG(
     with TaskGroup(group_id="Extract_Data") as Extract_Data:
 
         all_logs = []
-        
+        # Ittirates over the topics in the kafka broker.
         for topic in default_args["tickers"]:
             
             with TaskGroup(group_id=f"Extract_{topic}_Data",
                            parent_group=Extract_Data) as ExtractTopicData:
                 
+                # Selects how far back to read logs.
                 length_of_logs_to_read = select_extract_tasks(topic=topic)
 
                 last_10_minutes_of_logs = read_kafka_logs.override(task_id="read_logs_back_ten_minutes")(topic=topic, 
@@ -73,9 +74,11 @@ with DAG(
             
 
     with TaskGroup(group_id="Clean_Data") as Clean_Data:
-
+        
+        # Stores all logs in JSON format (a list of dictionaries)
         flattened_list = flatten_return_values(list_of_logs=all_logs)
         
+        # Cleans the data.
         standardise_attributes = select_relevant_columns(raw_trades_data=flattened_list)
 
         cleaned_timestamp = clean_timestamp(list_of_logs=standardise_attributes)
@@ -88,12 +91,13 @@ with DAG(
 
     with TaskGroup(group_id="Transform_Data") as Transform_Data:
         
+        # Aggregates the data and adds aggregted columns.
         aggregated_trades = aggregate_data(cleaned_trade_list=cleaned_timestamp)
 
+        # Adds data on ticker symbol news if there has been any.
         enriched_trades = enrich_data(aggregated_dataframe=aggregated_trades,
                                       api_key=FINHUB_API_KEY)
-        
-        # add_to_table = 
+
 
         (
             aggregated_trades
@@ -106,12 +110,14 @@ with DAG(
 
         formatted_insert_query = INSERT_INTO_TABLE.format(records)
 
+        
         create_table = SQLExecuteQueryOperator(task_id="create_table",
                                                sql=CREATE_TABLE,
                                                autocommit=True,
                                                conn_id="mysql_finance_db",
                                                database=DATABASE_NAME)
         
+        # Inserts records into a MySQL database
         load_records = SQLExecuteQueryOperator(task_id="load_records",
                                                sql=formatted_insert_query,
                                                autocommit=True,
@@ -126,6 +132,7 @@ with DAG(
 
     with TaskGroup(group_id="Visualise_Data") as Visualise_Data:
 
+        # Fetches all records from the access layer table.
         records= SQLExecuteQueryOperator(task_id="fetch_records",
                                                sql=GET_RECORDS,
                                                autocommit=True,
